@@ -50,7 +50,7 @@ extension SearchViewController {
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
         tableView.backgroundColor = .gray
         tableView.separatorColor = .red
-//        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
     }
 }
 
