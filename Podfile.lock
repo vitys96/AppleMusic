@@ -1,0 +1,53 @@
+PODS:
+  - Alamofire (4.9.1)
+  - IQKeyboardManagerSwift (6.5.2)
+  - JGProgressHUD (2.1)
+  - Marshal (1.2.7)
+  - PromiseKit (6.11.0):
+    - PromiseKit/CorePromise (= 6.11.0)
+    - PromiseKit/Foundation (= 6.11.0)
+    - PromiseKit/UIKit (= 6.11.0)
+  - PromiseKit/CorePromise (6.11.0)
+  - PromiseKit/Foundation (6.11.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/MapKit (6.11.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.11.0):
+    - PromiseKit/CorePromise
+  - SDWebImage (5.2.3):
+    - SDWebImage/Core (= 5.2.3)
+  - SDWebImage/Core (5.2.3)
+  - TableKit (2.10.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift
+  - JGProgressHUD
+  - Marshal
+  - PromiseKit
+  - PromiseKit/MapKit
+  - SDWebImage
+  - TableKit
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - JGProgressHUD
+    - Marshal
+    - PromiseKit
+    - SDWebImage
+    - TableKit
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  IQKeyboardManagerSwift: c75366f1f19590e8caeae45fcd5815c9289d6099
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
+  Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
+  PromiseKit: e4863d06976e7dee5e41c04fc7371c16b3600292
+  SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
+  TableKit: 65645d0dd786e21dc61464da59ad770c60a07282
+
+PODFILE CHECKSUM: 5ffcebfcf3d39fc9b9070d43bd3cc9d5c1febc00
+
+COCOAPODS: 1.8.3
