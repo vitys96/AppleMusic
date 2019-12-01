@@ -10,8 +10,9 @@ target 'AppleMusic' do
   pod 'JGProgressHUD'
   pod 'PromiseKit'
   pod 'PromiseKit/MapKit'
-pod 'TableKit'
+  pod 'TableKit'
   pod 'IQKeyboardManagerSwift'
-pod 'Alamofire'
-pod 'Marshal'
+  pod 'Alamofire'
+  pod 'Marshal'
+  pod 'lottie-ios'
 end

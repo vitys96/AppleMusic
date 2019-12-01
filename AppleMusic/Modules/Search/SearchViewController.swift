@@ -11,6 +11,7 @@
 
 import UIKit
 import TableKit
+import Lottie
 
 class SearchViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class SearchViewController: UIViewController {
     var tableDirector: TableDirector!
     let searchController = UISearchController(searchResultsController: nil)
     private var timer: Timer?
+    private var emptyView = AnimationView()
     
     
     // MARK: - IBOutlets
@@ -39,7 +41,17 @@ class SearchViewController: UIViewController {
 
 // MARK: - SearchView
 extension SearchViewController: SearchView {
+    func displayEmptyResults() {
+        tableDirector.clear()
+        view.insertSubview(emptyView, aboveSubview: tableView)
+        emptyView.fillSuperview()
+        emptyView.animation = Animation.named("empty")
+        emptyView.loopMode = .loop
+        emptyView.play()
+    }
+    
     func displayFetchedSongs(songs: [SearchCell.Data]) {
+        emptyView.removeFromSuperview()
         tableDirector.clear()
         let section = TableSection()
         let rows = songs.map{TableRow<SearchCell>(item: $0, actions: [])}

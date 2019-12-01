@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.9.1)
   - IQKeyboardManagerSwift (6.5.4)
   - JGProgressHUD (2.1)
+  - lottie-ios (3.1.5)
   - Marshal (1.2.7)
   - PromiseKit (6.12.0):
     - PromiseKit/CorePromise (= 6.12.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
   - JGProgressHUD
+  - lottie-ios
   - Marshal
   - PromiseKit
   - PromiseKit/MapKit
@@ -34,6 +36,7 @@ SPEC REPOS:
     - Alamofire
     - IQKeyboardManagerSwift
     - JGProgressHUD
+    - lottie-ios
     - Marshal
     - PromiseKit
     - SDWebImage
@@ -43,11 +46,12 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
+  lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
   PromiseKit: c06835ba442ce5454ce3cdde470232804a6e4ff8
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   TableKit: 65645d0dd786e21dc61464da59ad770c60a07282
 
-PODFILE CHECKSUM: 5ffcebfcf3d39fc9b9070d43bd3cc9d5c1febc00
+PODFILE CHECKSUM: 613a2eda9664708dbeb381b1d03aba08d80503e1
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3
