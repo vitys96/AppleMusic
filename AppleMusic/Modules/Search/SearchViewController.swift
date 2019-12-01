@@ -18,6 +18,7 @@ class SearchViewController: UIViewController {
     var presenter: SearchPresenterInterface?
     var tableDirector: TableDirector!
     let searchController = UISearchController(searchResultsController: nil)
+    private var timer: Timer?
     
     
     // MARK: - IBOutlets
@@ -38,6 +39,14 @@ class SearchViewController: UIViewController {
 
 // MARK: - SearchView
 extension SearchViewController: SearchView {
+    func displayFetchedSongs(songs: [SearchCell.Data]) {
+        tableDirector.clear()
+        let section = TableSection()
+        let rows = songs.map{TableRow<SearchCell>(item: $0, actions: [])}
+        section.append(rows: rows)
+        tableDirector += [section]
+        tableDirector.reload()
+    }
     
 }
 
@@ -46,17 +55,22 @@ extension SearchViewController {
     func configureUI() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        definesPresentationContext = true
         searchController.searchBar.delegate = self
         view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
-        tableView.backgroundColor = .gray
-        tableView.separatorColor = .red
+        tableView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
+        tableView.separatorColor = .lightGray
         tableView.tableFooterView = UIView()
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print (searchText)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+           self.presenter?.fetchData(searchText: searchText)
+        })
     }
 }
 

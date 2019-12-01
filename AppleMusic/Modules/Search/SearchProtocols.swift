@@ -47,7 +47,9 @@ extension SearchPresenterInterface {
 
 //MARK: Interactor -
 protocol SearchInteractorOutput: class {
-
+    func fetchedSearchList(lists: [Songs])
+    func fetchedSearchList(error: Error)
+    func fetchedFully()
     /* Interactor -> Presenter */
 }
 
@@ -62,6 +64,6 @@ protocol SearchInteractorInput: class {
 protocol SearchView: class {
 
     var presenter: SearchPresenterInterface?  { get set }
-    
+    func displayFetchedSongs(songs: [SearchCell.Data])
     /* Presenter -> ViewController */
 }

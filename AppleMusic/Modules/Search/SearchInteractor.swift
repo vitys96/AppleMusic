@@ -19,7 +19,15 @@ class SearchInteractor: SearchInteractorInput {
     // MARK: - SearchInteractorInput -
     
     func fetchSearchingData(searchText: String) {
-        
+        SearchingManager.searchSongs(searchingText: searchText)
+                .done {[weak self] (searchList) in
+                    self?.presenter?.fetchedSearchList(lists: searchList)
+                }.catch {[weak self] (error) in
+                    self?.presenter?.fetchedSearchList(error: error)
+                }
+                .finally {[weak self] in
+                    self?.presenter?.fetchedFully()
+            }
     }
 
 }

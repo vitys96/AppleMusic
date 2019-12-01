@@ -17,15 +17,15 @@ extension MainAPI {
         let urlString = url ?? ""
         let header: HTTPHeaders = headers == nil ? HTTPHeaders() : headers!
         Alamofire.request(urlString, method: type, parameters: parameters, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
-            guard let response = response.result.value as? Dictionary<String, AnyObject> else {
+            guard let response = response.result.value as? [String : AnyObject] else {
                 completion?(.Error(code: nil, message: nil))
                 return
             }
-            guard let data = response["results"] as? [String: Any] else {
-                completion?(.Error(code: nil, message: nil))
-                return
-            }
-            completion?(.Success(response: data))
+//            guard let data = response as? [String: Any] else {
+//                completion?(.Error(code: nil, message: nil))
+//                return
+//            }
+            completion?(.Success(response: response))
         }
     }
 }

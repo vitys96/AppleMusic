@@ -29,12 +29,23 @@ class SearchPresenter {
 // MARK: - SearchPresenterInterface -
 extension SearchPresenter: SearchPresenterInterface {
     func fetchData(searchText: String) {
-        
+        self.interactor?.fetchSearchingData(searchText: searchText)
     }
 }
 
 // MARK: - SearchInteractorOutput -
 extension SearchPresenter: SearchInteractorOutput {
+    func fetchedSearchList(error: Error) {
+        
+    }
     
+    func fetchedFully() {
+        
+    }
+    
+    func fetchedSearchList(lists: [Songs]) {
+        let rows = lists.map{SearchCell.Data(artistName: $0.artistName, artistLinkUrl: $0.artworkUrl100)}
+        self.view?.displayFetchedSongs(songs: rows)
+    }
 }
 

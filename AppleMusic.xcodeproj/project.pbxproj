@@ -33,6 +33,11 @@
 		D8E5BC47238AC31400AAC345 /* LibraryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */; };
 		D8E5BC48238AC31400AAC345 /* LibraryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */; };
 		D8E5BC49238AC31400AAC345 /* LibraryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */; };
+		EFDE388A23926B83008260E8 /* SearchingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE388923926B83008260E8 /* SearchingManager.swift */; };
+		EFDE388D239285A0008260E8 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE388C239285A0008260E8 /* SearchCell.swift */; };
+		EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFDE388F239285BE008260E8 /* SearchCell.xib */; };
+		EFDE389323928CB4008260E8 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE389223928CB4008260E8 /* Extension + UIView.swift */; };
+		EFDE389523928D17008260E8 /* UIView + Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE389423928D17008260E8 /* UIView + Anchors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +70,11 @@
 		D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryProtocols.swift; sourceTree = "<group>"; };
 		D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInteractor.swift; sourceTree = "<group>"; };
 		D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurator.swift; sourceTree = "<group>"; };
+		EFDE388923926B83008260E8 /* SearchingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingManager.swift; sourceTree = "<group>"; };
+		EFDE388C239285A0008260E8 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		EFDE388F239285BE008260E8 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		EFDE389223928CB4008260E8 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		EFDE389423928D17008260E8 /* UIView + Anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Anchors.swift"; sourceTree = "<group>"; };
 		FA54B0B4DA2CA0164598E2A4 /* Pods_AppleMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -153,9 +163,9 @@
 		D8E5BC16238AC20B00AAC345 /* AppleMusic */ = {
 			isa = PBXGroup;
 			children = (
+				D8E5BC2B238AC25400AAC345 /* MainTabBarController.swift */,
 				D88F22732390715300F95511 /* Application */,
 				D8E5BC4C238B127500AAC345 /* Common */,
-				D8E5BC2B238AC25400AAC345 /* MainTabBarController.swift */,
 				D8E5BC4B238AC32000AAC345 /* Modules */,
 				D8E5BC1D238AC20B00AAC345 /* Main.storyboard */,
 				D8E5BC20238AC21000AAC345 /* Assets.xcassets */,
@@ -205,7 +215,10 @@
 		D8E5BC4C238B127500AAC345 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EFDE389123928CA4008260E8 /* Extension */,
 				D88F2274239072BD00F95511 /* Models */,
+				EFDE388B23928430008260E8 /* Views */,
+				EFDE388723926AC6008260E8 /* Managers */,
 				D88F226B2390671100F95511 /* Constants */,
 				D88F2268239066B200F95511 /* API */,
 			);
@@ -218,6 +231,48 @@
 				FA54B0B4DA2CA0164598E2A4 /* Pods_AppleMusic.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFDE388723926AC6008260E8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EFDE388823926ADE008260E8 /* Network */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EFDE388823926ADE008260E8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EFDE388923926B83008260E8 /* SearchingManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EFDE388B23928430008260E8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EFDE388E239285A7008260E8 /* TableCells */,
+				EFDE388C239285A0008260E8 /* SearchCell.swift */,
+				EFDE388F239285BE008260E8 /* SearchCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EFDE388E239285A7008260E8 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		EFDE389123928CA4008260E8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EFDE389223928CB4008260E8 /* Extension + UIView.swift */,
+				EFDE389423928D17008260E8 /* UIView + Anchors.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +338,7 @@
 				D8E5BC24238AC21000AAC345 /* LaunchScreen.storyboard in Resources */,
 				D8E5BC21238AC21000AAC345 /* Assets.xcassets in Resources */,
 				D8E5BC43238AC31400AAC345 /* Library.storyboard in Resources */,
+				EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */,
 				D8E5BC34238AC2FA00AAC345 /* Search.storyboard in Resources */,
 				D8E5BC1F238AC20B00AAC345 /* Main.storyboard in Resources */,
 			);
@@ -338,11 +394,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E5BC3A238AC2FA00AAC345 /* SearchConfigurator.swift in Sources */,
+				EFDE388D239285A0008260E8 /* SearchCell.swift in Sources */,
 				D8E5BC36238AC2FA00AAC345 /* SearchRouter.swift in Sources */,
+				EFDE388A23926B83008260E8 /* SearchingManager.swift in Sources */,
 				D88F226A239066FA00F95511 /* SearchSongsAPI.swift in Sources */,
 				D88F22722390696900F95511 /* MainAPI.swift in Sources */,
 				D8E5BC37238AC2FA00AAC345 /* SearchViewController.swift in Sources */,
 				D8E5BC48238AC31400AAC345 /* LibraryInteractor.swift in Sources */,
+				EFDE389323928CB4008260E8 /* Extension + UIView.swift in Sources */,
 				D8E5BC45238AC31400AAC345 /* LibraryRouter.swift in Sources */,
 				D8E5BC39238AC2FA00AAC345 /* SearchInteractor.swift in Sources */,
 				D8E5BC38238AC2FA00AAC345 /* SearchProtocols.swift in Sources */,
@@ -353,6 +412,7 @@
 				D8E5BC49238AC31400AAC345 /* LibraryConfigurator.swift in Sources */,
 				D88F226E2390673300F95511 /* SearchSongsURL.swift in Sources */,
 				D8E5BC2C238AC25400AAC345 /* MainTabBarController.swift in Sources */,
+				EFDE389523928D17008260E8 /* UIView + Anchors.swift in Sources */,
 				D8E5BC1A238AC20B00AAC345 /* SceneDelegate.swift in Sources */,
 				D8E5BC46238AC31400AAC345 /* LibraryViewController.swift in Sources */,
 				D88F2276239072DB00F95511 /* Searching.swift in Sources */,
@@ -501,15 +561,17 @@
 			baseConfigurationReference = A03EF45E27D18769FAF99281 /* Pods-AppleMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 99894H992V;
+				DEVELOPMENT_TEAM = 92VC4PD35V;
 				INFOPLIST_FILE = AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kaboo.AppleMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = appMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -520,15 +582,17 @@
 			baseConfigurationReference = 6E07352635932420789E1A5A /* Pods-AppleMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 99894H992V;
+				DEVELOPMENT_TEAM = 92VC4PD35V;
 				INFOPLIST_FILE = AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kaboo.AppleMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = appMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

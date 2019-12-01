@@ -14,3 +14,19 @@ enum APIResponse {
 }
 
 typealias ServerResult      = (_ response: APIResponse) -> Void
+
+enum ResponseError: Error {
+    case with(code: Int?, message: String?)
+    case appError(error: AppError)
+}
+
+enum AppError: Error {
+    case unknown
+    
+    var message: String {
+        switch self {
+        case .unknown:
+            return "Unknown"
+        }
+    }
+}

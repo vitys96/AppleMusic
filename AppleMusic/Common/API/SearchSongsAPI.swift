@@ -6,11 +6,15 @@
 //  Copyright © 2019 Vitaly. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct SearchSongsAPI: MainAPI {
-    static func getMatchesIDsWithTranslations(params: [String : AnyObject], completion: ServerResult?)  {
-        
+    static func getSongs(searchText: String, completion: ServerResult?)  {
+        let params = [
+            "term" : searchText,
+            "limit" : 10,
+            "media" : "music"
+            ] as [String : AnyObject]
         sendRequest(type: .get, url: SearchSongsURL.search.rawValue, parameters: params, headers: nil, completion: completion)
     }
 }
