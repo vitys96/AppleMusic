@@ -4,6 +4,9 @@ PODS:
   - JGProgressHUD (2.1)
   - lottie-ios (3.1.5)
   - Marshal (1.2.7)
+  - Motion (3.1.3):
+    - Motion/Core (= 3.1.3)
+  - Motion/Core (3.1.3)
   - PromiseKit (6.12.0):
     - PromiseKit/CorePromise (= 6.12.0)
     - PromiseKit/Foundation (= 6.12.0)
@@ -26,6 +29,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - lottie-ios
   - Marshal
+  - Motion (from `https://github.com/CosmicMind/Motion`)
   - PromiseKit
   - PromiseKit/MapKit
   - SDWebImage
@@ -42,16 +46,26 @@ SPEC REPOS:
     - SDWebImage
     - TableKit
 
+EXTERNAL SOURCES:
+  Motion:
+    :git: https://github.com/CosmicMind/Motion
+
+CHECKOUT OPTIONS:
+  Motion:
+    :commit: 808ac0cf1b67c5e4163ee867dd6c056836fcbc58
+    :git: https://github.com/CosmicMind/Motion
+
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   IQKeyboardManagerSwift: 2dde0fc70110e8eac7ccce2a46fdbec6a850b414
   JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
+  Motion: 4519d0019e9a68f5f70c366f26ff49efaff0017b
   PromiseKit: c06835ba442ce5454ce3cdde470232804a6e4ff8
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   TableKit: 65645d0dd786e21dc61464da59ad770c60a07282
 
-PODFILE CHECKSUM: 613a2eda9664708dbeb381b1d03aba08d80503e1
+PODFILE CHECKSUM: 9161ba0765f6f23dc70a6ef38186c9c88845fd6c
 
 COCOAPODS: 1.8.3

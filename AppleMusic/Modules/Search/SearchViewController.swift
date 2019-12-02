@@ -12,14 +12,16 @@
 import UIKit
 import TableKit
 import Lottie
+import Motion
 
 class SearchViewController: UIViewController {
     
     // MARK: - Properties
     var presenter: SearchPresenterInterface?
-    var tableDirector: TableDirector!
-    let searchController = UISearchController(searchResultsController: nil)
+    private var tableDirector: TableDirector!
+    private let searchController = UISearchController(searchResultsController: nil)
     private var timer: Timer?
+    private let emptyView = LottieView()
     
     
     // MARK: - IBOutlets
@@ -41,23 +43,16 @@ class SearchViewController: UIViewController {
 // MARK: - SearchView
 extension SearchViewController: SearchView {
     func displayEmptyView(animationName: String, title: String, message: String) {
-        let emptyView = LottieView()
-        emptyView.update(title: title, subTitle: message, lottieName: animationName, animationViewContentMode: .scaleAspectFit)
-        view.insertSubview(emptyView, aboveSubview: tableView)
-        emptyView.fillSuperview()
-    }
-    
-    func displayEmptyResults() {
-//        tableDirector.clear()
-//        view.insertSubview(emptyView, aboveSubview: tableView)
-//        emptyView.fillSuperview()
-//        emptyView.animation = Animation.named("empty")
-//        emptyView.loopMode = .loop
-//        emptyView.play()
+        self.view.insertSubview(self.emptyView, belowSubview: self.tableView)
+        self.emptyView.fillSuperview()
+        emptyView.update(title: title, subTitle: message, lottieName: animationName, animationViewContentMode: .scaleAspectFill)
+        emptyView.animate(.fade(1))
+        tableView.animate(.fade(0))
     }
     
     func displayFetchedSongs(songs: [SearchCell.Data]) {
-//        emptyView.removeFromSuperview()
+        emptyView.animate(.fade(0))
+        tableView.animate(.fade(1))
         tableDirector.clear()
         let section = TableSection()
         let rows = songs.map{TableRow<SearchCell>(item: $0, actions: [])}
@@ -76,9 +71,9 @@ extension SearchViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.searchBar.delegate = self
-        view.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
-        tableView.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
-        tableView.separatorColor = .lightGray
+        view.backgroundColor = .background
+        tableView.backgroundColor = .background
+        tableView.separatorColor = .separatorColor
         tableView.tableFooterView = UIView()
     }
 }
@@ -87,9 +82,9 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-           self.presenter?.fetchData(searchText: searchText)
+            if !searchText.isEmpty {
+                self.presenter?.fetchData(searchText: searchText)
+            }
         })
     }
 }
-
-

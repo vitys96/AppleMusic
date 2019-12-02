@@ -29,4 +29,7 @@ extension UIColor {
     @nonobjc static var mainText: UIColor {
         return #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) //000000
     }
+    @nonobjc static var separatorColor: UIColor {
+        return .lightGray
+    }
 }

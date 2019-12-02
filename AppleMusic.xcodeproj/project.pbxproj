@@ -12,6 +12,7 @@
 		D8895DCF2394E1B2006A7673 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8895DCE2394E1B2006A7673 /* LottieView.swift */; };
 		D8895DD12394E1C1006A7673 /* LottieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8895DD02394E1C1006A7673 /* LottieView.xib */; };
 		D8895DD42394E27C006A7673 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8895DD32394E27C006A7673 /* AppTheme.swift */; };
+		D8895DD823959F35006A7673 /* NoConnection.json in Resources */ = {isa = PBXBuildFile; fileRef = D8895DD723959F35006A7673 /* NoConnection.json */; };
 		D88F226A239066FA00F95511 /* SearchSongsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F2269239066FA00F95511 /* SearchSongsAPI.swift */; };
 		D88F226E2390673300F95511 /* SearchSongsURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F226D2390673300F95511 /* SearchSongsURL.swift */; };
 		D88F2270239068C600F95511 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F226F239068C600F95511 /* APIResponse.swift */; };
@@ -51,6 +52,7 @@
 		D8895DCE2394E1B2006A7673 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D8895DD02394E1C1006A7673 /* LottieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieView.xib; sourceTree = "<group>"; };
 		D8895DD32394E27C006A7673 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		D8895DD723959F35006A7673 /* NoConnection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoConnection.json; sourceTree = "<group>"; };
 		D88F2269239066FA00F95511 /* SearchSongsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongsAPI.swift; sourceTree = "<group>"; };
 		D88F226D2390673300F95511 /* SearchSongsURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongsURL.swift; sourceTree = "<group>"; };
 		D88F226F239068C600F95511 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -124,6 +126,23 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
+		D8895DD52395602A006A7673 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D8895DD623956036006A7673 /* LottieFiles */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D8895DD623956036006A7673 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D8895DD723959F35006A7673 /* NoConnection.json */,
+				D878901B23943FEB003E0938 /* empty.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
 		D88F2268239066B200F95511 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +213,7 @@
 				D8E5BC4C238B127500AAC345 /* Common */,
 				D8E5BC4B238AC32000AAC345 /* Modules */,
 				D8E5BC1D238AC20B00AAC345 /* Main.storyboard */,
-				D878901B23943FEB003E0938 /* empty.json */,
+				D8895DD52395602A006A7673 /* Helpers */,
 				D8E5BC20238AC21000AAC345 /* Assets.xcassets */,
 				D8E5BC22238AC21000AAC345 /* LaunchScreen.storyboard */,
 				D8E5BC25238AC21000AAC345 /* Info.plist */,
@@ -371,6 +390,7 @@
 				EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */,
 				D8E5BC34238AC2FA00AAC345 /* Search.storyboard in Resources */,
 				D8E5BC1F238AC20B00AAC345 /* Main.storyboard in Resources */,
+				D8895DD823959F35006A7673 /* NoConnection.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

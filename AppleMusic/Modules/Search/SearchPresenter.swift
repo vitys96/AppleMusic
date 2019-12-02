@@ -36,7 +36,7 @@ extension SearchPresenter: SearchPresenterInterface {
 // MARK: - SearchInteractorOutput -
 extension SearchPresenter: SearchInteractorOutput {
     func fetchedSearchList(error: Error) {
-        
+        view?.displayEmptyView(animationName: "empty", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
     }
     
     func fetchedFully() {
@@ -45,7 +45,7 @@ extension SearchPresenter: SearchInteractorOutput {
     
     func fetchedSearchList(lists: [Songs]) {
         guard lists.count > 0 else {
-            view?.displayEmptyView(animationName: "empty", title: "Вы пока никого не пригласили", message: "")
+            view?.displayEmptyView(animationName: "NoConnection", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
 //           self.view?.displayEmptyResults()
             return
         }

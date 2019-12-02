@@ -8,46 +8,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="AqC-2A-GUQ" customClass="SearchCell" customModule="AppleMusic" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="482" height="100"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AqC-2A-GUQ" customClass="SearchCell" customModule="AppleMusic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="525" height="89"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AqC-2A-GUQ" id="Jhy-8d-Xrt">
-                <rect key="frame" x="0.0" y="0.0" width="482" height="100"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AqC-2A-GUQ" id="Jhy-8d-Xrt">
+                <rect key="frame" x="0.0" y="0.0" width="525" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bnn-NB-IJ2">
-                        <rect key="frame" x="10" y="10" width="92" height="75"/>
+                        <rect key="frame" x="21" y="12" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="75" id="1ln-hi-Cee"/>
-                            <constraint firstAttribute="width" constant="92" id="Yu3-39-CbG"/>
-                            <constraint firstAttribute="width" secondItem="Bnn-NB-IJ2" secondAttribute="height" multiplier="92:75" id="fZd-9Z-rYG"/>
+                            <constraint firstAttribute="width" constant="60" id="Eqm-Ca-uTW"/>
+                            <constraint firstAttribute="width" secondItem="Bnn-NB-IJ2" secondAttribute="height" multiplier="1:1" id="Ikl-g7-HUe"/>
+                            <constraint firstAttribute="height" constant="60" id="c7R-zM-nne"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yX3-0C-Gse">
-                        <rect key="frame" x="112" y="10" width="360" height="75"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="75" id="tqV-Kz-YW9"/>
-                        </constraints>
+                        <rect key="frame" x="96" y="12" width="417" height="60"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="yX3-0C-Gse" firstAttribute="leading" secondItem="Bnn-NB-IJ2" secondAttribute="trailing" constant="10" id="ETf-bc-VQ3"/>
-                    <constraint firstItem="Bnn-NB-IJ2" firstAttribute="leading" secondItem="Jhy-8d-Xrt" secondAttribute="leading" constant="10" id="Xzw-Vk-gs8"/>
-                    <constraint firstAttribute="bottom" secondItem="Bnn-NB-IJ2" secondAttribute="bottom" constant="10" id="YY7-Fb-782"/>
-                    <constraint firstAttribute="trailing" secondItem="yX3-0C-Gse" secondAttribute="trailing" constant="10" id="hfo-2O-67W"/>
-                    <constraint firstItem="Bnn-NB-IJ2" firstAttribute="top" secondItem="Jhy-8d-Xrt" secondAttribute="top" constant="10" id="ioE-Jx-LOS"/>
-                    <constraint firstItem="yX3-0C-Gse" firstAttribute="top" secondItem="Jhy-8d-Xrt" secondAttribute="top" constant="10" id="pwc-On-ky8"/>
-                    <constraint firstAttribute="bottom" secondItem="yX3-0C-Gse" secondAttribute="bottom" constant="15" id="tlK-bx-3WG"/>
+                    <constraint firstItem="Bnn-NB-IJ2" firstAttribute="top" secondItem="Jhy-8d-Xrt" secondAttribute="top" constant="12" id="Edp-Bo-PhN"/>
+                    <constraint firstAttribute="bottom" secondItem="Bnn-NB-IJ2" secondAttribute="bottom" constant="12" id="Kya-o8-1LU"/>
+                    <constraint firstItem="yX3-0C-Gse" firstAttribute="top" secondItem="Jhy-8d-Xrt" secondAttribute="top" constant="12" id="Vu8-Il-Rp6"/>
+                    <constraint firstItem="yX3-0C-Gse" firstAttribute="leading" secondItem="Bnn-NB-IJ2" secondAttribute="trailing" constant="15" id="X5s-7j-z9k"/>
+                    <constraint firstItem="Bnn-NB-IJ2" firstAttribute="leading" secondItem="Jhy-8d-Xrt" secondAttribute="leading" constant="21" id="ayl-kh-jdP"/>
+                    <constraint firstAttribute="trailing" secondItem="yX3-0C-Gse" secondAttribute="trailing" constant="12" id="dlQ-Vv-cSb"/>
+                    <constraint firstAttribute="bottom" secondItem="yX3-0C-Gse" secondAttribute="bottom" constant="12" id="qyF-0b-MqH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="artistImageView" destination="Bnn-NB-IJ2" id="UyR-6s-TLQ"/>
                 <outlet property="artistName" destination="yX3-0C-Gse" id="14G-dv-QzM"/>
             </connections>
-            <point key="canvasLocation" x="272.46376811594206" y="-197.54464285714286"/>
+            <point key="canvasLocation" x="241.30434782608697" y="-201.22767857142856"/>
         </tableViewCell>
     </objects>
 </document>

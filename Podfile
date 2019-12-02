@@ -9,6 +9,7 @@ target 'AppleMusic' do
   pod 'SDWebImage'
   pod 'JGProgressHUD'
   pod 'PromiseKit'
+  pod 'Motion', :git=> 'https://github.com/CosmicMind/Motion'
   pod 'PromiseKit/MapKit'
   pod 'TableKit'
   pod 'IQKeyboardManagerSwift'
