@@ -66,5 +66,6 @@ protocol SearchView: class {
     var presenter: SearchPresenterInterface?  { get set }
     func displayFetchedSongs(songs: [SearchCell.Data])
     func displayEmptyResults()
+    func displayEmptyView(animationName: String, title: String, message: String)
     /* Presenter -> ViewController */
 }

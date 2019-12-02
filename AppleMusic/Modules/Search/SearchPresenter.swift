@@ -45,7 +45,8 @@ extension SearchPresenter: SearchInteractorOutput {
     
     func fetchedSearchList(lists: [Songs]) {
         guard lists.count > 0 else {
-           self.view?.displayEmptyResults()
+            view?.displayEmptyView(animationName: "empty", title: "Вы пока никого не пригласили", message: "")
+//           self.view?.displayEmptyResults()
             return
         }
         let rows = lists.map{SearchCell.Data(artistName: $0.artistName, artistLinkUrl: $0.artworkUrl100)}

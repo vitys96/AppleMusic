@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		01D5D047C62D02C026A224BE /* Pods_AppleMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA54B0B4DA2CA0164598E2A4 /* Pods_AppleMusic.framework */; };
 		D878901C23943FEB003E0938 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = D878901B23943FEB003E0938 /* empty.json */; };
+		D8895DCF2394E1B2006A7673 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8895DCE2394E1B2006A7673 /* LottieView.swift */; };
+		D8895DD12394E1C1006A7673 /* LottieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8895DD02394E1C1006A7673 /* LottieView.xib */; };
+		D8895DD42394E27C006A7673 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8895DD32394E27C006A7673 /* AppTheme.swift */; };
 		D88F226A239066FA00F95511 /* SearchSongsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F2269239066FA00F95511 /* SearchSongsAPI.swift */; };
 		D88F226E2390673300F95511 /* SearchSongsURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F226D2390673300F95511 /* SearchSongsURL.swift */; };
 		D88F2270239068C600F95511 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F226F239068C600F95511 /* APIResponse.swift */; };
@@ -45,6 +48,9 @@
 		6E07352635932420789E1A5A /* Pods-AppleMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusic.release.xcconfig"; path = "Target Support Files/Pods-AppleMusic/Pods-AppleMusic.release.xcconfig"; sourceTree = "<group>"; };
 		A03EF45E27D18769FAF99281 /* Pods-AppleMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusic.debug.xcconfig"; path = "Target Support Files/Pods-AppleMusic/Pods-AppleMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		D878901B23943FEB003E0938 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
+		D8895DCE2394E1B2006A7673 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		D8895DD02394E1C1006A7673 /* LottieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieView.xib; sourceTree = "<group>"; };
+		D8895DD32394E27C006A7673 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		D88F2269239066FA00F95511 /* SearchSongsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongsAPI.swift; sourceTree = "<group>"; };
 		D88F226D2390673300F95511 /* SearchSongsURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongsURL.swift; sourceTree = "<group>"; };
 		D88F226F239068C600F95511 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -101,6 +107,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D8895DCD2394E1A3006A7673 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				D8895DCE2394E1B2006A7673 /* LottieView.swift */,
+				D8895DD02394E1C1006A7673 /* LottieView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		D8895DD22394E273006A7673 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				D8895DD32394E27C006A7673 /* AppTheme.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		D88F2268239066B200F95511 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +162,7 @@
 		D88F2274239072BD00F95511 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D8895DD22394E273006A7673 /* Internal */,
 				D88F2275239072DB00F95511 /* Searching.swift */,
 			);
 			path = Models;
@@ -255,9 +279,8 @@
 		EFDE388B23928430008260E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D8895DCD2394E1A3006A7673 /* CustomViews */,
 				EFDE388E239285A7008260E8 /* TableCells */,
-				EFDE388C239285A0008260E8 /* SearchCell.swift */,
-				EFDE388F239285BE008260E8 /* SearchCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +288,8 @@
 		EFDE388E239285A7008260E8 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				EFDE388C239285A0008260E8 /* SearchCell.swift */,
+				EFDE388F239285BE008260E8 /* SearchCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -341,6 +366,7 @@
 				D878901C23943FEB003E0938 /* empty.json in Resources */,
 				D8E5BC24238AC21000AAC345 /* LaunchScreen.storyboard in Resources */,
 				D8E5BC21238AC21000AAC345 /* Assets.xcassets in Resources */,
+				D8895DD12394E1C1006A7673 /* LottieView.xib in Resources */,
 				D8E5BC43238AC31400AAC345 /* Library.storyboard in Resources */,
 				EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */,
 				D8E5BC34238AC2FA00AAC345 /* Search.storyboard in Resources */,
@@ -399,6 +425,8 @@
 			files = (
 				D8E5BC3A238AC2FA00AAC345 /* SearchConfigurator.swift in Sources */,
 				EFDE388D239285A0008260E8 /* SearchCell.swift in Sources */,
+				D8895DCF2394E1B2006A7673 /* LottieView.swift in Sources */,
+				D8895DD42394E27C006A7673 /* AppTheme.swift in Sources */,
 				D8E5BC36238AC2FA00AAC345 /* SearchRouter.swift in Sources */,
 				EFDE388A23926B83008260E8 /* SearchingManager.swift in Sources */,
 				D88F226A239066FA00F95511 /* SearchSongsAPI.swift in Sources */,
