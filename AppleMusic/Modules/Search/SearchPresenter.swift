@@ -44,12 +44,12 @@ extension SearchPresenter: SearchInteractorOutput {
     }
     
     func fetchedSearchList(lists: [Songs]) {
+        print (lists.map({$0.songm4p}))
         guard lists.count > 0 else {
             view?.displayEmptyView(animationName: "NoConnection", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
-//           self.view?.displayEmptyResults()
             return
         }
-        let rows = lists.map{SearchCell.Data(artistName: $0.artistName, artistLinkUrl: $0.artworkUrl100)}
+        let rows = lists.map{SearchCell.Data(trackName: $0.trackName, artistName: $0.artistName, collectionName: $0.collectionName, songIconUrl: $0.artworkUrl100)}
         self.view?.displayFetchedSongs(songs: rows)
     }
 }

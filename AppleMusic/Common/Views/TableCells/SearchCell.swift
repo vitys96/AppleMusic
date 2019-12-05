@@ -12,7 +12,9 @@ import TableKit
 
 class SearchCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var artistImageView: UIImageView!
+    @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var collectionName: UILabel!
     
         // MARK: - Life Cycle
     override func awakeFromNib() {
@@ -21,7 +23,9 @@ class SearchCell: UITableViewCell, ConfigurableCell {
     
     func configure(with data: Data) {
         artistName.text = data.artistName
-        artistImageView.sd_setImage(with: URL(string: data.artistLinkUrl ?? "")) {[weak self] (image, _, _, _) in
+        trackName.text = data.trackName
+        collectionName.text = data.collectionName
+        artistImageView.sd_setImage(with: URL(string: data.songIconUrl ?? "")) {[weak self] (image, _, _, _) in
             if let image = image?.withRenderingMode(.alwaysOriginal) {
                 self?.artistImageView.image = image
             }
@@ -31,7 +35,9 @@ class SearchCell: UITableViewCell, ConfigurableCell {
 
 extension SearchCell {
     struct Data {
+        let trackName: String?
         let artistName: String?
-        let artistLinkUrl: String?
+        let collectionName: String?
+        let songIconUrl: String?
     }
 }
