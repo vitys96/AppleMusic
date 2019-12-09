@@ -61,10 +61,10 @@ protocol SearchInteractorInput: class {
 }
 
 //MARK: View -
-protocol SearchView: class {
+protocol SearchView: class, Alertable, Loadable {
 
     var presenter: SearchPresenterInterface?  { get set }
-    func displayFetchedSongs(songs: [SearchCell.Data])
+    func displayFetchedSongs(songs: [Songs])
     func displayEmptyView(animationName: String, title: String, message: String)
     /* Presenter -> ViewController */
 }

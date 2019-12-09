@@ -29,6 +29,7 @@ class SearchPresenter {
 // MARK: - SearchPresenterInterface -
 extension SearchPresenter: SearchPresenterInterface {
     func fetchData(searchText: String) {
+        self.view?.startLoading()
         self.interactor?.fetchSearchingData(searchText: searchText)
     }
 }
@@ -36,21 +37,23 @@ extension SearchPresenter: SearchPresenterInterface {
 // MARK: - SearchInteractorOutput -
 extension SearchPresenter: SearchInteractorOutput {
     func fetchedSearchList(error: Error) {
+        self.view?.stopLoading()
         view?.displayEmptyView(animationName: "empty", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
     }
     
     func fetchedFully() {
-        
+        self.view?.stopLoading()
     }
     
     func fetchedSearchList(lists: [Songs]) {
-        print (lists.map({$0.songm4p}))
+        self.view?.stopLoading()
         guard lists.count > 0 else {
             view?.displayEmptyView(animationName: "NoConnection", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
             return
         }
-        let rows = lists.map{SearchCell.Data(trackName: $0.trackName, artistName: $0.artistName, collectionName: $0.collectionName, songIconUrl: $0.artworkUrl100)}
-        self.view?.displayFetchedSongs(songs: rows)
+//
+//        let rows = lists.map{SearchCell.Data(trackName: $0.trackName, artistName: $0.artistName, collectionName: $0.collectionName, songIconUrl: $0.artworkUrl100, songMusicMp4: $0.songm4p)}
+        self.view?.displayFetchedSongs(songs: lists)
     }
 }
 

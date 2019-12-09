@@ -17,10 +17,9 @@
 		D88F226E2390673300F95511 /* SearchSongsURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F226D2390673300F95511 /* SearchSongsURL.swift */; };
 		D88F2270239068C600F95511 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F226F239068C600F95511 /* APIResponse.swift */; };
 		D88F22722390696900F95511 /* MainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F22712390696900F95511 /* MainAPI.swift */; };
-		D88F2276239072DB00F95511 /* Searching.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F2275239072DB00F95511 /* Searching.swift */; };
+		D88F2276239072DB00F95511 /* Songs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88F2275239072DB00F95511 /* Songs.swift */; };
 		D8E5BC18238AC20B00AAC345 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC17238AC20B00AAC345 /* AppDelegate.swift */; };
 		D8E5BC1A238AC20B00AAC345 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC19238AC20B00AAC345 /* SceneDelegate.swift */; };
-		D8E5BC1F238AC20B00AAC345 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E5BC1D238AC20B00AAC345 /* Main.storyboard */; };
 		D8E5BC21238AC21000AAC345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8E5BC20238AC21000AAC345 /* Assets.xcassets */; };
 		D8E5BC24238AC21000AAC345 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8E5BC22238AC21000AAC345 /* LaunchScreen.storyboard */; };
 		D8E5BC2C238AC25400AAC345 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC2B238AC25400AAC345 /* MainTabBarController.swift */; };
@@ -38,6 +37,12 @@
 		D8E5BC47238AC31400AAC345 /* LibraryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */; };
 		D8E5BC48238AC31400AAC345 /* LibraryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */; };
 		D8E5BC49238AC31400AAC345 /* LibraryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */; };
+		EF864DF2239D631A0088348F /* Extension + CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864DF1239D631A0088348F /* Extension + CMTime.swift */; };
+		EF8DBBD2239A6F6A003A034B /* Extension + ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8DBBD1239A6F6A003A034B /* Extension + ViewController.swift */; };
+		EF8DBBD5239A6FDA003A034B /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8DBBD4239A6FDA003A034B /* Alertable.swift */; };
+		EF8DBBD7239A6FF6003A034B /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8DBBD6239A6FF6003A034B /* Loadable.swift */; };
+		EF8DBBDB239A8A10003A034B /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8DBBDA239A8A10003A034B /* TrackDetailView.swift */; };
+		EF8DBBDD239A8A1D003A034B /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8DBBDC239A8A1D003A034B /* TrackDetailView.xib */; };
 		EFDE388A23926B83008260E8 /* SearchingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE388923926B83008260E8 /* SearchingManager.swift */; };
 		EFDE388D239285A0008260E8 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE388C239285A0008260E8 /* SearchCell.swift */; };
 		EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFDE388F239285BE008260E8 /* SearchCell.xib */; };
@@ -57,11 +62,10 @@
 		D88F226D2390673300F95511 /* SearchSongsURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongsURL.swift; sourceTree = "<group>"; };
 		D88F226F239068C600F95511 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		D88F22712390696900F95511 /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
-		D88F2275239072DB00F95511 /* Searching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Searching.swift; sourceTree = "<group>"; };
+		D88F2275239072DB00F95511 /* Songs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Songs.swift; sourceTree = "<group>"; };
 		D8E5BC14238AC20B00AAC345 /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E5BC17238AC20B00AAC345 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8E5BC19238AC20B00AAC345 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D8E5BC1E238AC20B00AAC345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8E5BC20238AC21000AAC345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8E5BC23238AC21000AAC345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8E5BC25238AC21000AAC345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +84,12 @@
 		D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryProtocols.swift; sourceTree = "<group>"; };
 		D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInteractor.swift; sourceTree = "<group>"; };
 		D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurator.swift; sourceTree = "<group>"; };
+		EF864DF1239D631A0088348F /* Extension + CMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + CMTime.swift"; sourceTree = "<group>"; };
+		EF8DBBD1239A6F6A003A034B /* Extension + ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + ViewController.swift"; sourceTree = "<group>"; };
+		EF8DBBD4239A6FDA003A034B /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		EF8DBBD6239A6FF6003A034B /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		EF8DBBDA239A8A10003A034B /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
+		EF8DBBDC239A8A1D003A034B /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		EFDE388923926B83008260E8 /* SearchingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingManager.swift; sourceTree = "<group>"; };
 		EFDE388C239285A0008260E8 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		EFDE388F239285BE008260E8 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
@@ -112,8 +122,8 @@
 		D8895DCD2394E1A3006A7673 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				D8895DCE2394E1B2006A7673 /* LottieView.swift */,
-				D8895DD02394E1C1006A7673 /* LottieView.xib */,
+				EF8DBBD9239A89FF003A034B /* TrackDetailView */,
+				EF8DBBD8239A89EC003A034B /* LottieView */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -121,7 +131,6 @@
 		D8895DD22394E273006A7673 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				D8895DD32394E27C006A7673 /* AppTheme.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -182,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				D8895DD22394E273006A7673 /* Internal */,
-				D88F2275239072DB00F95511 /* Searching.swift */,
+				D88F2275239072DB00F95511 /* Songs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,7 +221,7 @@
 				D88F22732390715300F95511 /* Application */,
 				D8E5BC4C238B127500AAC345 /* Common */,
 				D8E5BC4B238AC32000AAC345 /* Modules */,
-				D8E5BC1D238AC20B00AAC345 /* Main.storyboard */,
+				EFDE389123928CA4008260E8 /* Extension */,
 				D8895DD52395602A006A7673 /* Helpers */,
 				D8E5BC20238AC21000AAC345 /* Assets.xcassets */,
 				D8E5BC22238AC21000AAC345 /* LaunchScreen.storyboard */,
@@ -261,7 +270,8 @@
 		D8E5BC4C238B127500AAC345 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				EFDE389123928CA4008260E8 /* Extension */,
+				EF8DBBD3239A6FCE003A034B /* Protocols */,
+				D8895DD32394E27C006A7673 /* AppTheme.swift */,
 				D88F2274239072BD00F95511 /* Models */,
 				EFDE388B23928430008260E8 /* Views */,
 				EFDE388723926AC6008260E8 /* Managers */,
@@ -277,6 +287,33 @@
 				FA54B0B4DA2CA0164598E2A4 /* Pods_AppleMusic.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF8DBBD3239A6FCE003A034B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EF8DBBD4239A6FDA003A034B /* Alertable.swift */,
+				EF8DBBD6239A6FF6003A034B /* Loadable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EF8DBBD8239A89EC003A034B /* LottieView */ = {
+			isa = PBXGroup;
+			children = (
+				D8895DCE2394E1B2006A7673 /* LottieView.swift */,
+				D8895DD02394E1C1006A7673 /* LottieView.xib */,
+			);
+			path = LottieView;
+			sourceTree = "<group>";
+		};
+		EF8DBBD9239A89FF003A034B /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				EF8DBBDA239A8A10003A034B /* TrackDetailView.swift */,
+				EF8DBBDC239A8A1D003A034B /* TrackDetailView.xib */,
+			);
+			path = TrackDetailView;
 			sourceTree = "<group>";
 		};
 		EFDE388723926AC6008260E8 /* Managers */ = {
@@ -317,6 +354,8 @@
 			isa = PBXGroup;
 			children = (
 				EFDE389223928CB4008260E8 /* Extension + UIView.swift */,
+				EF864DF1239D631A0088348F /* Extension + CMTime.swift */,
+				EF8DBBD1239A6F6A003A034B /* Extension + ViewController.swift */,
 				EFDE389423928D17008260E8 /* UIView + Anchors.swift */,
 			);
 			path = Extension;
@@ -389,7 +428,7 @@
 				D8E5BC43238AC31400AAC345 /* Library.storyboard in Resources */,
 				EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */,
 				D8E5BC34238AC2FA00AAC345 /* Search.storyboard in Resources */,
-				D8E5BC1F238AC20B00AAC345 /* Main.storyboard in Resources */,
+				EF8DBBDD239A8A1D003A034B /* TrackDetailView.xib in Resources */,
 				D8895DD823959F35006A7673 /* NoConnection.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,9 +485,12 @@
 				D8E5BC3A238AC2FA00AAC345 /* SearchConfigurator.swift in Sources */,
 				EFDE388D239285A0008260E8 /* SearchCell.swift in Sources */,
 				D8895DCF2394E1B2006A7673 /* LottieView.swift in Sources */,
+				EF8DBBDB239A8A10003A034B /* TrackDetailView.swift in Sources */,
 				D8895DD42394E27C006A7673 /* AppTheme.swift in Sources */,
+				EF864DF2239D631A0088348F /* Extension + CMTime.swift in Sources */,
 				D8E5BC36238AC2FA00AAC345 /* SearchRouter.swift in Sources */,
 				EFDE388A23926B83008260E8 /* SearchingManager.swift in Sources */,
+				EF8DBBD2239A6F6A003A034B /* Extension + ViewController.swift in Sources */,
 				D88F226A239066FA00F95511 /* SearchSongsAPI.swift in Sources */,
 				D88F22722390696900F95511 /* MainAPI.swift in Sources */,
 				D8E5BC37238AC2FA00AAC345 /* SearchViewController.swift in Sources */,
@@ -464,10 +506,12 @@
 				D8E5BC49238AC31400AAC345 /* LibraryConfigurator.swift in Sources */,
 				D88F226E2390673300F95511 /* SearchSongsURL.swift in Sources */,
 				D8E5BC2C238AC25400AAC345 /* MainTabBarController.swift in Sources */,
+				EF8DBBD5239A6FDA003A034B /* Alertable.swift in Sources */,
 				EFDE389523928D17008260E8 /* UIView + Anchors.swift in Sources */,
+				EF8DBBD7239A6FF6003A034B /* Loadable.swift in Sources */,
 				D8E5BC1A238AC20B00AAC345 /* SceneDelegate.swift in Sources */,
 				D8E5BC46238AC31400AAC345 /* LibraryViewController.swift in Sources */,
-				D88F2276239072DB00F95511 /* Searching.swift in Sources */,
+				D88F2276239072DB00F95511 /* Songs.swift in Sources */,
 				D88F2270239068C600F95511 /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,14 +519,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D8E5BC1D238AC20B00AAC345 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D8E5BC1E238AC20B00AAC345 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D8E5BC22238AC21000AAC345 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -613,15 +649,15 @@
 			baseConfigurationReference = A03EF45E27D18769FAF99281 /* Pods-AppleMusic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92VC4PD35V;
+				DEVELOPMENT_TEAM = 8L3SNZ837Y;
 				INFOPLIST_FILE = AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = appMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = appMusics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -634,15 +670,15 @@
 			baseConfigurationReference = 6E07352635932420789E1A5A /* Pods-AppleMusic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 92VC4PD35V;
+				DEVELOPMENT_TEAM = 8L3SNZ837Y;
 				INFOPLIST_FILE = AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = appMusic;
+				PRODUCT_BUNDLE_IDENTIFIER = appMusics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

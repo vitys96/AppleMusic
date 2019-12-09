@@ -22,6 +22,8 @@ class SearchViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private var timer: Timer?
     private let emptyView = LottieView()
+    private let currentWindow: UIWindow? = UIApplication.shared.windows.first { $0.isKeyWindow }
+    private var songsViewModel: [Songs]?
     
     
     // MARK: - IBOutlets
@@ -36,6 +38,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         presenter?.viewDidLoad()
+        searchBar(searchController.searchBar, textDidChange: "Billie")
     }
     
 }
@@ -50,12 +53,29 @@ extension SearchViewController: SearchView {
         tableView.animate(.fade(0))
     }
     
-    func displayFetchedSongs(songs: [SearchCell.Data]) {
+    func displayFetchedSongs(songs: [Songs]) {
+        self.songsViewModel = songs
         emptyView.animate(.fade(0))
         tableView.animate(.fade(1))
         tableDirector.clear()
         let section = TableSection()
-        let rows = songs.map{TableRow<SearchCell>(item: $0, actions: [])}
+        let configureAction = TableRowAction<SearchCell>.init(.configure) { (options) in
+            options.cell?.backgroundColor = .cellBackground
+        }
+        let rowSelectionAction = TableRowAction<SearchCell>.init(.select) { [weak self] options in
+            guard let self = self else { return }
+            let index: Int = options.indexPath.row
+            if let trackDetailView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as? TrackDetailView {
+                trackDetailView.configure(with: songs[index])
+                trackDetailView.delegate = self
+                self.currentWindow?.addSubview(trackDetailView)
+                trackDetailView.fillSuperview()
+            }
+        }
+        let rows: [TableRow<SearchCell>] = songs.enumerated().map{
+            TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction])
+        }
+//        let rows = songs.map{TableRow<SearchCell>(item: $0, actions: [configureAction, rowSelectionAction])}
         section.append(rows: rows)
         tableDirector += [section]
         tableDirector.reload()
@@ -65,16 +85,20 @@ extension SearchViewController: SearchView {
 
 // MARK: - UI Configuration
 extension SearchViewController {
-    func configureUI() {
+    private func configureUI() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
         definesPresentationContext = true
         searchController.searchBar.delegate = self
         view.backgroundColor = .background
+        configureTableView()
+    }
+    private func configureTableView() {
         tableView.backgroundColor = .background
         tableView.separatorColor = .separatorColor
         tableView.tableFooterView = UIView()
+        tableView.keyboardDismissMode = .onDrag
     }
 }
 
@@ -86,5 +110,36 @@ extension SearchViewController: UISearchBarDelegate {
                 self.presenter?.fetchData(searchText: searchText)
             }
         })
+    }
+}
+
+extension SearchViewController: TrackMovingDelegate {
+    
+    private func getTrack(isForwardTrack: Bool) -> Songs? {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+        tableView.deselectRow(at: indexPath, animated: true)
+        var nextIndexPath: IndexPath!
+        if isForwardTrack {
+            nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            if nextIndexPath.row == songsViewModel?.count {
+                nextIndexPath.row = 0
+            }
+        } else {
+            nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+            if nextIndexPath.row == -1 {
+                nextIndexPath.row = (songsViewModel?.count ?? 0) - 1
+            }
+        }
+        tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
+        let song = songsViewModel?[nextIndexPath.row]
+        return song
+    }
+    
+    func moveBackForPreviousTrack() -> Songs? {
+        return getTrack(isForwardTrack: false)
+    }
+    
+    func moveForwardForNextTrack() -> Songs? {
+        return getTrack(isForwardTrack: true)
     }
 }

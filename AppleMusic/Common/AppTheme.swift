@@ -32,4 +32,7 @@ extension UIColor {
     @nonobjc static var separatorColor: UIColor {
         return .lightGray
     }
+    @nonobjc static var cellBackground: UIColor {
+        return .white
+    }
 }

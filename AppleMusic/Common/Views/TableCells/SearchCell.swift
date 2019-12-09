@@ -21,11 +21,11 @@ class SearchCell: UITableViewCell, ConfigurableCell {
         super.awakeFromNib()
     }
     
-    func configure(with data: Data) {
+    func configure(with data: Songs) {
         artistName.text = data.artistName
         trackName.text = data.trackName
         collectionName.text = data.collectionName
-        artistImageView.sd_setImage(with: URL(string: data.songIconUrl ?? "")) {[weak self] (image, _, _, _) in
+        artistImageView.sd_setImage(with: URL(string: data.songIconUrl100 ?? "")) {[weak self] (image, _, _, _) in
             if let image = image?.withRenderingMode(.alwaysOriginal) {
                 self?.artistImageView.image = image
             }
@@ -39,5 +39,6 @@ extension SearchCell {
         let artistName: String?
         let collectionName: String?
         let songIconUrl: String?
+        let songMusicMp4: String?
     }
 }
