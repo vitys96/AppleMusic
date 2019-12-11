@@ -26,6 +26,7 @@ struct SearchConfigurator {
         } else {
             view = viewController as? SearchViewController
         }
+        
 
         let interactor = SearchInteractor()
         let router = SearchRouter()

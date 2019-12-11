@@ -15,6 +15,12 @@ class SearchCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var trackName: UILabel!
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var collectionName: UILabel!
+    @IBOutlet weak var topSeparator: UIView!
+    @IBOutlet weak var bottomSeparator: UIView!
+    
+    static var defaultHeight: CGFloat? {
+        return 85
+    }
     
         // MARK: - Life Cycle
     override func awakeFromNib() {
@@ -30,6 +36,7 @@ class SearchCell: UITableViewCell, ConfigurableCell {
                 self?.artistImageView.image = image
             }
         }
+        separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
 }
 

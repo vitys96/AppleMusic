@@ -22,8 +22,9 @@ class SearchViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private var timer: Timer?
     private let emptyView = LottieView()
-    private let currentWindow: UIWindow? = UIApplication.shared.windows.first { $0.isKeyWindow }
     private var songsViewModel: [Songs]?
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
+    var didTouchCell: ((Songs) -> Void)?
     
     
     // MARK: - IBOutlets
@@ -40,7 +41,6 @@ class SearchViewController: UIViewController {
         presenter?.viewDidLoad()
         searchBar(searchController.searchBar, textDidChange: "Billie")
     }
-    
 }
 
 // MARK: - SearchView
@@ -65,20 +65,14 @@ extension SearchViewController: SearchView {
         let rowSelectionAction = TableRowAction<SearchCell>.init(.select) { [weak self] options in
             guard let self = self else { return }
             let index: Int = options.indexPath.row
-            if let trackDetailView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)?.first as? TrackDetailView {
-                trackDetailView.configure(with: songs[index])
-                trackDetailView.delegate = self
-                self.currentWindow?.addSubview(trackDetailView)
-                trackDetailView.fillSuperview()
-            }
+            let cellViewModel = songs[index]
+            self.didTouchCell?(cellViewModel)
+            self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
         }
         let rows: [TableRow<SearchCell>] = songs.enumerated().map{
             TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction])
         }
-//        let rows = songs.map{TableRow<SearchCell>(item: $0, actions: [configureAction, rowSelectionAction])}
-        section.append(rows: rows)
-        tableDirector += [section]
-        tableDirector.reload()
+        tableDirector.appendAndFill(section, with: rows, animation: .fade(duration: 0.2))
     }
     
 }
