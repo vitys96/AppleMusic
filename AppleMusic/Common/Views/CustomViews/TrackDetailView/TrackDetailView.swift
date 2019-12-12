@@ -12,7 +12,6 @@ import AVKit
 import MediaPlayer
 
 class TrackDetailView: UIView {
-    
     @IBOutlet weak var maximizedStackView: UIStackView!
     @IBOutlet weak var miniTrackView: UIView!
     @IBOutlet weak var miniPlayPauseButton: UIButton!
@@ -125,11 +124,16 @@ class TrackDetailView: UIView {
         switch gesture.state {
         case .changed:
             maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 1, options: .curveLinear, animations: {
+                self.maximizedStackView.alpha = 1 - translation.y / 200
+                self.alpha = 1 - translation.y / 20
+            })
         case .ended:
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.maximizedStackView.transform = .identity
                 if translation.y > 50 {
                     self.tabBarDelegate?.minimazeTrackDetailController()
+                    self.alpha = 1
                 }
             }, completion: nil)
          @unknown default:
