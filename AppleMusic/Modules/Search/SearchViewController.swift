@@ -25,12 +25,14 @@ class SearchViewController: UIViewController {
     private var songsViewModel: [Songs]?
     weak var tabBarDelegate: MainTabBarControllerDelegate?
     var didTouchCell: ((Songs) -> Void)?
+    private var serachingText: String?
+    private var isFetching: Bool = false
     
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableDirector = TableDirector(tableView: tableView)
+            tableDirector = TableDirector(tableView: tableView, scrollDelegate: self, shouldUseAutomaticCellRegistration: true, cellHeightCalculator: nil)
         }
     }
     
@@ -39,25 +41,24 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         presenter?.viewDidLoad()
-        searchBar(searchController.searchBar, textDidChange: "Billie")
+//        searchBar(searchController.searchBar, textDidChange: "Billie")
     }
 }
 
 // MARK: - SearchView
 extension SearchViewController: SearchView {
     func displayEmptyView(animationName: String, title: String, message: String) {
-        self.view.insertSubview(self.emptyView, belowSubview: self.tableView)
-        self.emptyView.fillSuperview()
         emptyView.update(title: title, subTitle: message, lottieName: animationName, animationViewContentMode: .scaleAspectFill)
         emptyView.animate(.fade(1))
         tableView.animate(.fade(0))
+        emptyView.isHidden = false
     }
     
     func displayFetchedSongs(songs: [Songs]) {
-        self.songsViewModel = songs
         emptyView.animate(.fade(0))
         tableView.animate(.fade(1))
-        tableDirector.clear()
+        emptyView.isHidden = true
+        self.songsViewModel = songs
         let section = TableSection()
         let configureAction = TableRowAction<SearchCell>.init(.configure) { (options) in
             options.cell?.backgroundColor = .cellBackground
@@ -67,14 +68,17 @@ extension SearchViewController: SearchView {
             let index: Int = options.indexPath.row
             let cellViewModel = songs[index]
             self.didTouchCell?(cellViewModel)
+            self.tableView.selectRow(at: options.indexPath, animated: false, scrollPosition: .none)
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
         }
         let rows: [TableRow<SearchCell>] = songs.enumerated().map{
             TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction])
         }
-        tableDirector.appendAndFill(section, with: rows, animation: .fade(duration: 0.2))
+        section.append(rows: rows)
+        tableDirector.append(section: section)
+        tableDirector.reload()
+//        tableDirector.appendAndFill(section, with: rows, animation: .fade(duration: 0.2))
     }
-    
 }
 
 // MARK: - UI Configuration
@@ -87,12 +91,18 @@ extension SearchViewController {
         searchController.searchBar.delegate = self
         view.backgroundColor = .background
         configureTableView()
+        configureEmptyView()
     }
     private func configureTableView() {
         tableView.backgroundColor = .background
         tableView.separatorColor = .separatorColor
         tableView.tableFooterView = UIView()
         tableView.keyboardDismissMode = .onDrag
+    }
+    private func configureEmptyView() {
+        view.insertSubview(self.emptyView, belowSubview: self.tableView)
+        emptyView.fillSuperview()
+        emptyView.isHidden = true
     }
 }
 
@@ -101,14 +111,35 @@ extension SearchViewController: UISearchBarDelegate {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
             if !searchText.isEmpty {
+                self.serachingText = searchText
                 self.presenter?.fetchData(searchText: searchText)
             }
         })
     }
 }
 
+extension SearchViewController: UIScrollViewDelegate {
+        func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+            let offsetY = scrollView.contentOffset.y
+            let contentHeight = scrollView.contentSize.height
+            if offsetY > contentHeight / 1.1 - scrollView.frame.height {
+                if !isFetching {
+                    guard let searchText = serachingText else { return }
+                    fetchingMore(text: searchText)
+                }
+            }
+        }
+    private func fetchingMore(text: String) {
+        isFetching = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            Links.page += Number.one.number
+            self.presenter?.fetchData(searchText: text)
+            self.isFetching = false
+        }
+    }
+}
+
 extension SearchViewController: TrackMovingDelegate {
-    
     private func getTrack(isForwardTrack: Bool) -> Songs? {
         guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -124,7 +155,7 @@ extension SearchViewController: TrackMovingDelegate {
                 nextIndexPath.row = (songsViewModel?.count ?? 0) - 1
             }
         }
-        tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
+        tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .middle)
         let song = songsViewModel?[nextIndexPath.row]
         return song
     }

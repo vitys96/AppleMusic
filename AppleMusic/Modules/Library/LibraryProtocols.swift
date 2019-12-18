@@ -57,9 +57,9 @@ protocol LibraryInteractorInput: class {
 }
 
 //MARK: View -
-protocol LibraryView: class {
+protocol LibraryView: class, Alertable, Loadable {
 
     var presenter: LibraryPresenterInterface?  { get set }
-
+    func displayEmptyView(animationName: String, title: String, message: String)
     /* Presenter -> ViewController */
 }

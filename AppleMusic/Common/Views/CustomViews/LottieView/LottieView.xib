@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,18 +24,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jDm-Z7-8Fz">
-                    <rect key="frame" x="16" y="219.5" width="343" height="368.5"/>
+                    <rect key="frame" x="16" y="169.5" width="343" height="468.5"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgd-Rk-aeO" customClass="AnimationView" customModule="Lottie">
-                            <rect key="frame" x="71.5" y="0.0" width="200" height="200"/>
+                            <rect key="frame" x="21.5" y="0.0" width="300" height="300"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="t8G-cD-SG7"/>
-                                <constraint firstAttribute="width" constant="200" id="vgY-qs-r4d"/>
+                                <constraint firstAttribute="width" secondItem="Wgd-Rk-aeO" secondAttribute="height" multiplier="1:1" id="dT1-7s-v5A"/>
+                                <constraint firstAttribute="height" constant="300" id="t8G-cD-SG7"/>
+                                <constraint firstAttribute="width" constant="300" id="vgY-qs-r4d"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="TD3-KK-kTd" customClass="UIImageView">
-                            <rect key="frame" x="111.5" y="216" width="120" height="100"/>
+                            <rect key="frame" x="111.5" y="316" width="120" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="Ayj-Jk-WZW"/>
@@ -43,13 +44,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t29-wK-mbJ">
-                            <rect key="frame" x="171.5" y="332" width="0.0" height="0.0"/>
+                            <rect key="frame" x="171.5" y="432" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.2199999988079071" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdW-cH-4tn">
-                            <rect key="frame" x="150.5" y="348" width="42" height="20.5"/>
+                            <rect key="frame" x="150.5" y="448" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

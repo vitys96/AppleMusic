@@ -14,15 +14,55 @@ import UIKit
 class LibraryViewController: UIViewController {
     // MARK: - Properties
 	var presenter: LibraryPresenterInterface?
-
+    var topLibraryView = TopLibraryView()
+    
+    private let emptyView = LottieView()
+    
+    @IBOutlet weak var tableView: UITableView!
     // MARK: - Lifecycle -
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter?.viewWillAppear()
+    }
 	override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
     }
-
+    
 }
 
 // MARK: - LibraryView
 extension LibraryViewController: LibraryView {
+    func displayEmptyView(animationName: String, title: String, message: String) {
+        self.view.insertSubview(self.emptyView, belowSubview: self.tableView)
+        self.emptyView.fillSuperview()
+        emptyView.update(title: title, subTitle: message, lottieName: animationName, animationViewContentMode: .scaleAspectFill)
+        emptyView.animate(.fade(1))
+        tableView.animate(.fade(0))
+    }
+}
+
+
+// MARK: - UI Configuration
+extension LibraryViewController {
+    
+    private func configureUI() {
+        view.backgroundColor = .background
+        configureTableView()
+    }
+    private func configureTableView() {
+        self.tableView.tableHeaderView = topLibraryView
+        tableView.tableHeaderView?.frame.size.height = CGFloat(50).dp
+        tableView.contentInset = UIEdgeInsets(top: -topLibraryView.frame.origin.y, left: 0, bottom: 0, right: 0)
+        tableView.backgroundColor = .background
+        tableView.separatorColor = .separatorColor
+        tableView.tableFooterView = UIView()
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
+        topLibraryView.playButtonTouch = { [weak self] in
+        }
+    }
     
 }
+

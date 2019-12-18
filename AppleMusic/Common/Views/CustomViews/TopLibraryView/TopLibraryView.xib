@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopLibraryView" customModule="AppleMusic" customModuleProvider="target">
+            <connections>
+                <outlet property="playButton" destination="9LV-s5-IUD" id="3sc-Gd-69j"/>
+                <outlet property="shuffleButton" destination="KxZ-7C-VIX" id="eIb-g1-T03"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="74"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVC-po-XrK">
+                    <rect key="frame" x="0.0" y="0.0" width="347" height="71"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3hW-dt-wIh">
+                            <rect key="frame" x="10" y="3" width="327" height="68"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LV-s5-IUD" customClass="BounceButton" customModule="AppleMusic" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="158.5" height="68"/>
+                                    <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.80784314869999996" green="0.027450980619999999" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="play.fill" catalog="system"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxZ-7C-VIX" customClass="BounceButton" customModule="AppleMusic" customModuleProvider="target">
+                                    <rect key="frame" x="168.5" y="0.0" width="158.5" height="68"/>
+                                    <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.80784314869999996" green="0.027450980619999999" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="arrow.2.circlepath" catalog="system"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3hW-dt-wIh" firstAttribute="top" secondItem="IVC-po-XrK" secondAttribute="top" constant="3" id="3Lg-aj-pQ8"/>
+                        <constraint firstAttribute="trailing" secondItem="3hW-dt-wIh" secondAttribute="trailing" constant="10" id="Hpa-TS-rh6"/>
+                        <constraint firstItem="3hW-dt-wIh" firstAttribute="leading" secondItem="IVC-po-XrK" secondAttribute="leading" constant="10" id="LxN-Hi-c4w"/>
+                        <constraint firstAttribute="bottom" secondItem="3hW-dt-wIh" secondAttribute="bottom" id="dap-AS-3gV"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IVC-po-XrK" secondAttribute="trailing" id="8hb-65-0Cl"/>
+                <constraint firstItem="IVC-po-XrK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LON-xF-QP8"/>
+                <constraint firstAttribute="bottom" secondItem="IVC-po-XrK" secondAttribute="bottom" constant="3" id="Njb-li-OYW"/>
+                <constraint firstItem="IVC-po-XrK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cuT-g1-Yyy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="31.159420289855074" y="-135.26785714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.2.circlepath" catalog="system" width="64" height="50"/>
+        <image name="play.fill" catalog="system" width="58" height="64"/>
+    </resources>
+</document>

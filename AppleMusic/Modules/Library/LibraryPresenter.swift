@@ -23,6 +23,9 @@ class LibraryPresenter {
         self.interactor = interactor
         self.router = router
     }
+    func viewWillAppear() {
+        view?.displayEmptyView(animationName: "empty", title: "Список пуст", message: "Загрузите треки, чтобы прослушивать их позже")
+    }
 
 }
 

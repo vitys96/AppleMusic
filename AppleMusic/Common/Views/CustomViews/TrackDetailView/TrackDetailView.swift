@@ -124,12 +124,12 @@ class TrackDetailView: UIView {
         switch gesture.state {
         case .changed:
             maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 1, options: .curveLinear, animations: {
-                self.maximizedStackView.alpha = 1 - translation.y / 200
-                self.alpha = 1 - translation.y / 20
-            })
+//            self.maximizedStackView.alpha = 1 - translation.y / 200
+            if translation.y < 200 {
+                self.alpha = 1 - translation.y / 200
+            }
         case .ended:
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.maximizedStackView.transform = .identity
                 if translation.y > 50 {
                     self.tabBarDelegate?.minimazeTrackDetailController()
@@ -148,7 +148,7 @@ class TrackDetailView: UIView {
         case .ended:
             handlePanEnded(gesture: gesture)
          @unknown default:
-            print ("lalal")
+            print ()
         }
     }
     

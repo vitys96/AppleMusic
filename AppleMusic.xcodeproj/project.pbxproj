@@ -37,12 +37,14 @@
 		D8E5BC47238AC31400AAC345 /* LibraryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */; };
 		D8E5BC48238AC31400AAC345 /* LibraryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */; };
 		D8E5BC49238AC31400AAC345 /* LibraryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */; };
+		EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FDA5923A81366002CC8F0 /* TopLibraryView.xib */; };
 		EF3BC4FF239FAFD30089019E /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */; };
 		EF3BC501239FD21C0089019E /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC500239FD21C0089019E /* SearchingViewController.swift */; };
 		EF466E0023A0EFB100DA98FA /* PMVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF466DFF23A0EFB100DA98FA /* PMVolumeView.swift */; };
 		EF466E0223A0EFBD00DA98FA /* PMVolumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF466E0123A0EFBD00DA98FA /* PMVolumeView.xib */; };
 		EF466E0423A11BAB00DA98FA /* Extension + TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF466E0323A11BAB00DA98FA /* Extension + TableDirector.swift */; };
 		EF466E0623A11BDA00DA98FA /* UITableView + TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF466E0523A11BDA00DA98FA /* UITableView + TableFlip.swift */; };
+		EF4FDA5823A8135D002CC8F0 /* TopLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4FDA5723A8135D002CC8F0 /* TopLibraryView.swift */; };
 		EF864DF2239D631A0088348F /* Extension + CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864DF1239D631A0088348F /* Extension + CMTime.swift */; };
 		EF864DF4239ECF620088348F /* Extension + Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF864DF3239ECF620088348F /* Extension + Nib.swift */; };
 		EF8DBBD2239A6F6A003A034B /* Extension + ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8DBBD1239A6F6A003A034B /* Extension + ViewController.swift */; };
@@ -50,6 +52,9 @@
 		EF8DBBD7239A6FF6003A034B /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8DBBD6239A6FF6003A034B /* Loadable.swift */; };
 		EF8DBBDB239A8A10003A034B /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8DBBDA239A8A10003A034B /* TrackDetailView.swift */; };
 		EF8DBBDD239A8A1D003A034B /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF8DBBDC239A8A1D003A034B /* TrackDetailView.xib */; };
+		EFABB70423A97C62004889F9 /* Extension + CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABB70323A97C62004889F9 /* Extension + CGFloat.swift */; };
+		EFABB70723AA2425004889F9 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABB70623AA2425004889F9 /* BounceButton.swift */; };
+		EFABB70923AA363D004889F9 /* DesignableBounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFABB70823AA363D004889F9 /* DesignableBounceButton.swift */; };
 		EFBBA80823A01C6500DABC80 /* MainTabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA80723A01C6500DABC80 /* MainTabBarProtocols.swift */; };
 		EFBBA80A23A01CDC00DABC80 /* TrackDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBBA80923A01CDC00DABC80 /* TrackDetailProtocols.swift */; };
 		EFDE388A23926B83008260E8 /* SearchingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE388923926B83008260E8 /* SearchingManager.swift */; };
@@ -99,6 +104,8 @@
 		EF466E0123A0EFBD00DA98FA /* PMVolumeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PMVolumeView.xib; sourceTree = "<group>"; };
 		EF466E0323A11BAB00DA98FA /* Extension + TableDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + TableDirector.swift"; sourceTree = "<group>"; };
 		EF466E0523A11BDA00DA98FA /* UITableView + TableFlip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + TableFlip.swift"; sourceTree = "<group>"; };
+		EF4FDA5723A8135D002CC8F0 /* TopLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopLibraryView.swift; sourceTree = "<group>"; };
+		EF4FDA5923A81366002CC8F0 /* TopLibraryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopLibraryView.xib; sourceTree = "<group>"; };
 		EF864DF1239D631A0088348F /* Extension + CMTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + CMTime.swift"; sourceTree = "<group>"; };
 		EF864DF3239ECF620088348F /* Extension + Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Nib.swift"; sourceTree = "<group>"; };
 		EF8DBBD1239A6F6A003A034B /* Extension + ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + ViewController.swift"; sourceTree = "<group>"; };
@@ -106,6 +113,9 @@
 		EF8DBBD6239A6FF6003A034B /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		EF8DBBDA239A8A10003A034B /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		EF8DBBDC239A8A1D003A034B /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		EFABB70323A97C62004889F9 /* Extension + CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + CGFloat.swift"; sourceTree = "<group>"; };
+		EFABB70623AA2425004889F9 /* BounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
+		EFABB70823AA363D004889F9 /* DesignableBounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableBounceButton.swift; sourceTree = "<group>"; };
 		EFBBA80723A01C6500DABC80 /* MainTabBarProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarProtocols.swift; sourceTree = "<group>"; };
 		EFBBA80923A01CDC00DABC80 /* TrackDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailProtocols.swift; sourceTree = "<group>"; };
 		EFDE388923926B83008260E8 /* SearchingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingManager.swift; sourceTree = "<group>"; };
@@ -140,6 +150,7 @@
 		D8895DCD2394E1A3006A7673 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				EF4FDA5623A81344002CC8F0 /* TopLibraryView */,
 				EF8DBBD9239A89FF003A034B /* TrackDetailView */,
 				EF8DBBD8239A89EC003A034B /* LottieView */,
 				EF466E0723A1300B00DA98FA /* PMVolumeView */,
@@ -157,6 +168,7 @@
 		D8895DD52395602A006A7673 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				EFABB70523AA2414004889F9 /* Custom Clases */,
 				D8895DD623956036006A7673 /* LottieFiles */,
 			);
 			path = Helpers;
@@ -258,9 +270,9 @@
 				D8E5BC2E238AC2FA00AAC345 /* SearchPresenter.swift */,
 				D8E5BC2F238AC2FA00AAC345 /* SearchRouter.swift */,
 				D8E5BC30238AC2FA00AAC345 /* SearchViewController.swift */,
-				D8E5BC31238AC2FA00AAC345 /* SearchProtocols.swift */,
 				D8E5BC32238AC2FA00AAC345 /* SearchInteractor.swift */,
 				D8E5BC33238AC2FA00AAC345 /* SearchConfigurator.swift */,
+				D8E5BC31238AC2FA00AAC345 /* SearchProtocols.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -272,9 +284,9 @@
 				D8E5BC3D238AC31400AAC345 /* LibraryPresenter.swift */,
 				D8E5BC3E238AC31400AAC345 /* LibraryRouter.swift */,
 				D8E5BC3F238AC31400AAC345 /* LibraryViewController.swift */,
-				D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */,
 				D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */,
 				D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */,
+				D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -319,6 +331,15 @@
 			name = PMVolumeView;
 			sourceTree = "<group>";
 		};
+		EF4FDA5623A81344002CC8F0 /* TopLibraryView */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FDA5723A8135D002CC8F0 /* TopLibraryView.swift */,
+				EF4FDA5923A81366002CC8F0 /* TopLibraryView.xib */,
+			);
+			path = TopLibraryView;
+			sourceTree = "<group>";
+		};
 		EF8DBBD3239A6FCE003A034B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +366,15 @@
 				EFBBA80923A01CDC00DABC80 /* TrackDetailProtocols.swift */,
 			);
 			path = TrackDetailView;
+			sourceTree = "<group>";
+		};
+		EFABB70523AA2414004889F9 /* Custom Clases */ = {
+			isa = PBXGroup;
+			children = (
+				EFABB70623AA2425004889F9 /* BounceButton.swift */,
+				EFABB70823AA363D004889F9 /* DesignableBounceButton.swift */,
+			);
+			path = "Custom Clases";
 			sourceTree = "<group>";
 		};
 		EFDE388723926AC6008260E8 /* Managers */ = {
@@ -392,6 +422,7 @@
 				EF864DF3239ECF620088348F /* Extension + Nib.swift */,
 				EF466E0323A11BAB00DA98FA /* Extension + TableDirector.swift */,
 				EF466E0523A11BDA00DA98FA /* UITableView + TableFlip.swift */,
+				EFABB70323A97C62004889F9 /* Extension + CGFloat.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -463,6 +494,7 @@
 				D8E5BC43238AC31400AAC345 /* Library.storyboard in Resources */,
 				EF466E0223A0EFBD00DA98FA /* PMVolumeView.xib in Resources */,
 				EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */,
+				EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */,
 				D8E5BC34238AC2FA00AAC345 /* Search.storyboard in Resources */,
 				EF8DBBDD239A8A1D003A034B /* TrackDetailView.xib in Resources */,
 				D8895DD823959F35006A7673 /* NoConnection.json in Resources */,
@@ -518,14 +550,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFABB70923AA363D004889F9 /* DesignableBounceButton.swift in Sources */,
 				EFBBA80823A01C6500DABC80 /* MainTabBarProtocols.swift in Sources */,
 				D8E5BC3A238AC2FA00AAC345 /* SearchConfigurator.swift in Sources */,
 				EFDE388D239285A0008260E8 /* SearchCell.swift in Sources */,
 				D8895DCF2394E1B2006A7673 /* LottieView.swift in Sources */,
 				EF3BC4FF239FAFD30089019E /* UIViewController + Storyboard.swift in Sources */,
+				EFABB70723AA2425004889F9 /* BounceButton.swift in Sources */,
 				EF8DBBDB239A8A10003A034B /* TrackDetailView.swift in Sources */,
 				D8895DD42394E27C006A7673 /* AppTheme.swift in Sources */,
 				EF864DF2239D631A0088348F /* Extension + CMTime.swift in Sources */,
+				EFABB70423A97C62004889F9 /* Extension + CGFloat.swift in Sources */,
 				D8E5BC36238AC2FA00AAC345 /* SearchRouter.swift in Sources */,
 				EFDE388A23926B83008260E8 /* SearchingManager.swift in Sources */,
 				EF8DBBD2239A6F6A003A034B /* Extension + ViewController.swift in Sources */,
@@ -536,6 +571,7 @@
 				EFBBA80A23A01CDC00DABC80 /* TrackDetailProtocols.swift in Sources */,
 				D8E5BC48238AC31400AAC345 /* LibraryInteractor.swift in Sources */,
 				EFDE389323928CB4008260E8 /* Extension + UIView.swift in Sources */,
+				EF4FDA5823A8135D002CC8F0 /* TopLibraryView.swift in Sources */,
 				D8E5BC45238AC31400AAC345 /* LibraryRouter.swift in Sources */,
 				D8E5BC39238AC2FA00AAC345 /* SearchInteractor.swift in Sources */,
 				EF466E0623A11BDA00DA98FA /* UITableView + TableFlip.swift in Sources */,

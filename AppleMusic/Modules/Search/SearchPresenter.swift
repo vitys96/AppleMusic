@@ -16,6 +16,7 @@ class SearchPresenter {
     weak private var view: SearchView?
     var interactor: SearchInteractorInput?
     private let router: SearchWireframeInterface
+    private var offSet: Int = 0
 
     // MARK: - Initialization and deinitialization -
     init(interface: SearchView, interactor: SearchInteractorInput?, router: SearchWireframeInterface) {
