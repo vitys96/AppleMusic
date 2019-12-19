@@ -10,6 +10,7 @@ import Foundation
 import Marshal
 
 class Songs: Unmarshaling {
+    
     var artistName: String?
     var trackName: String?
     var collectionName: String?

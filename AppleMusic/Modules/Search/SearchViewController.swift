@@ -41,7 +41,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         presenter?.viewDidLoad()
-//        searchBar(searchController.searchBar, textDidChange: "Billie")
+        searchBar(searchController.searchBar, textDidChange: "Billie")
     }
 }
 
@@ -63,6 +63,9 @@ extension SearchViewController: SearchView {
         let configureAction = TableRowAction<SearchCell>.init(.configure) { (options) in
             options.cell?.backgroundColor = .cellBackground
         }
+        let rowSelectionAction1 = TableRowAction<SearchCell>.init(.canDelete) { (options) -> Bool in
+            return true
+        }
         let rowSelectionAction = TableRowAction<SearchCell>.init(.select) { [weak self] options in
             guard let self = self else { return }
             let index: Int = options.indexPath.row
@@ -72,12 +75,11 @@ extension SearchViewController: SearchView {
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
         }
         let rows: [TableRow<SearchCell>] = songs.enumerated().map{
-            TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction])
+            TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction, rowSelectionAction1])
         }
         section.append(rows: rows)
         tableDirector.append(section: section)
         tableDirector.reload()
-//        tableDirector.appendAndFill(section, with: rows, animation: .fade(duration: 0.2))
     }
 }
 

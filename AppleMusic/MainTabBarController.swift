@@ -32,8 +32,8 @@ class MainTabBarController: UITabBarController {
         
         
         viewControllers = [
-            generateViewControllers(rootVC: LibraryConfigurator.createModule(), image: #imageLiteral(resourceName: "library"), title: "Library"),
-            generateViewControllers(rootVC: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search")
+            generateViewControllers(rootVC: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search"),
+            generateViewControllers(rootVC: LibraryConfigurator.createModule(), image: #imageLiteral(resourceName: "library"), title: "Library")
         ]
         
     }

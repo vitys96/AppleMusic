@@ -10,11 +10,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LibraryInteractor: LibraryInteractorInput {
+    
+    private let realm = try! Realm()
+    
     // MARK: - Properties
     weak var presenter: LibraryInteractorOutput?
     
     // MARK: - LibraryInteractorInput -
-
+    func fetchTracksFromDB() {
+        let results = realm.objects(TrackModel.self)
+        let songsDB: [Songs] = results.map {
+        Songs(object:
+            ["artistName" : $0.artistName,
+             "trackName" : $0.trackName,
+             "artworkUrl100": $0.songIconUrl100
+            ]
+        )}
+        self.presenter?.fetchedTracksFromDB(songs: songsDB)
+    }
 }

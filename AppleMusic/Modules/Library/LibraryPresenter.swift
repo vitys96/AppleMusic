@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LibraryPresenter {
     // MARK: - Properties
@@ -24,7 +25,8 @@ class LibraryPresenter {
         self.router = router
     }
     func viewWillAppear() {
-        view?.displayEmptyView(animationName: "empty", title: "Список пуст", message: "Загрузите треки, чтобы прослушивать их позже")
+        self.interactor?.fetchTracksFromDB()
+//        view?.displayEmptyView(animationName: "empty", title: "Список пуст", message: "Загрузите треки, чтобы прослушивать их позже")
     }
 
 }
@@ -36,6 +38,9 @@ extension LibraryPresenter: LibraryPresenterInterface {
 
 // MARK: - LibraryInteractorOutput -
 extension LibraryPresenter: LibraryInteractorOutput {
-    
+    func fetchedTracksFromDB(songs: [Songs]) {
+        print (songs.map({$0.songIconUrl100}))
+        self.view?.displayFetchedSongs(songs: songs)
+    }
 }
 

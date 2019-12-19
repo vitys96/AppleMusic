@@ -10,15 +10,21 @@
 //
 
 import UIKit
+import TableKit
 
 class LibraryViewController: UIViewController {
     // MARK: - Properties
 	var presenter: LibraryPresenterInterface?
+    private var tableDirector: TableDirector!
     var topLibraryView = TopLibraryView()
     
     private let emptyView = LottieView()
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableDirector = TableDirector(tableView: tableView)
+        }
+    }
     // MARK: - Lifecycle -
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +39,7 @@ class LibraryViewController: UIViewController {
 
 // MARK: - LibraryView
 extension LibraryViewController: LibraryView {
+    
     func displayEmptyView(animationName: String, title: String, message: String) {
         self.view.insertSubview(self.emptyView, belowSubview: self.tableView)
         self.emptyView.fillSuperview()
@@ -40,16 +47,35 @@ extension LibraryViewController: LibraryView {
         emptyView.animate(.fade(1))
         tableView.animate(.fade(0))
     }
+    
+    func displayFetchedSongs(songs: [Songs]) {
+        tableDirector.clear()
+        let section = TableSection()
+        let rowSelectionAction1 = TableRowAction<SearchCell>(.canDelete) { (options) -> Bool in
+            return true
+        }
+        let rowSelectionAction2 = TableRowAction<SearchCell>(.clickDelete) { options in
+            print ("clickDelete actions")
+        }
+        let configureAction = TableRowAction<SearchCell>(.configure) { (options) in
+            options.cell?.backgroundColor = .cellBackground
+        }
+        let rows: [TableRow<SearchCell>] = songs.enumerated().map{
+            TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction1, rowSelectionAction2])
+        }
+        section.append(rows: rows)
+        tableDirector.append(section: section)
+        tableDirector.reload()
+    }
 }
-
 
 // MARK: - UI Configuration
 extension LibraryViewController {
-    
     private func configureUI() {
         view.backgroundColor = .background
         configureTableView()
     }
+    
     private func configureTableView() {
         self.tableView.tableHeaderView = topLibraryView
         tableView.tableHeaderView?.frame.size.height = CGFloat(50).dp
@@ -63,6 +89,5 @@ extension LibraryViewController {
         topLibraryView.playButtonTouch = { [weak self] in
         }
     }
-    
 }
 

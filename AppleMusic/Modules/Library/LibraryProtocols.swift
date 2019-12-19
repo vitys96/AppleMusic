@@ -10,6 +10,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 //MARK: Wireframe -
 enum LibraryNavigationOption {
@@ -45,6 +46,7 @@ extension LibraryPresenterInterface {
 
 //MARK: Interactor -
 protocol LibraryInteractorOutput: class {
+    func fetchedTracksFromDB(songs: [Songs])
 
     /* Interactor -> Presenter */
 }
@@ -52,6 +54,7 @@ protocol LibraryInteractorOutput: class {
 protocol LibraryInteractorInput: class {
 
     var presenter: LibraryInteractorOutput?  { get set }
+    func fetchTracksFromDB()
 
     /* Presenter -> Interactor */
 }
@@ -61,5 +64,6 @@ protocol LibraryView: class, Alertable, Loadable {
 
     var presenter: LibraryPresenterInterface?  { get set }
     func displayEmptyView(animationName: String, title: String, message: String)
+    func displayFetchedSongs(songs: [Songs])
     /* Presenter -> ViewController */
 }

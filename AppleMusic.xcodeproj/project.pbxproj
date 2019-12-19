@@ -37,6 +37,8 @@
 		D8E5BC47238AC31400AAC345 /* LibraryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */; };
 		D8E5BC48238AC31400AAC345 /* LibraryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */; };
 		D8E5BC49238AC31400AAC345 /* LibraryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */; };
+		EF0A84E423AAB64600B60372 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A84E323AAB64600B60372 /* TrackModel.swift */; };
+		EF0A84E623AAB6B200B60372 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A84E523AAB6B200B60372 /* DBManager.swift */; };
 		EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FDA5923A81366002CC8F0 /* TopLibraryView.xib */; };
 		EF3BC4FF239FAFD30089019E /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */; };
 		EF3BC501239FD21C0089019E /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC500239FD21C0089019E /* SearchingViewController.swift */; };
@@ -98,6 +100,8 @@
 		D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryProtocols.swift; sourceTree = "<group>"; };
 		D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInteractor.swift; sourceTree = "<group>"; };
 		D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurator.swift; sourceTree = "<group>"; };
+		EF0A84E323AAB64600B60372 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
+		EF0A84E523AAB6B200B60372 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		EF3BC500239FD21C0089019E /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		EF466DFF23A0EFB100DA98FA /* PMVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMVolumeView.swift; sourceTree = "<group>"; };
@@ -158,13 +162,6 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		D8895DD22394E273006A7673 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
 		D8895DD52395602A006A7673 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +218,6 @@
 		D88F2274239072BD00F95511 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D8895DD22394E273006A7673 /* Internal */,
 				D88F2275239072DB00F95511 /* Songs.swift */,
 			);
 			path = Models;
@@ -248,6 +244,7 @@
 		D8E5BC16238AC20B00AAC345 /* AppleMusic */ = {
 			isa = PBXGroup;
 			children = (
+				EF0A84E223AAB62C00B60372 /* Realm */,
 				D8E5BC2B238AC25400AAC345 /* MainTabBarController.swift */,
 				EFBBA80723A01C6500DABC80 /* MainTabBarProtocols.swift */,
 				D88F22732390715300F95511 /* Application */,
@@ -281,10 +278,10 @@
 			isa = PBXGroup;
 			children = (
 				D8E5BC3C238AC31400AAC345 /* Library.storyboard */,
-				D8E5BC3D238AC31400AAC345 /* LibraryPresenter.swift */,
-				D8E5BC3E238AC31400AAC345 /* LibraryRouter.swift */,
 				D8E5BC3F238AC31400AAC345 /* LibraryViewController.swift */,
+				D8E5BC3D238AC31400AAC345 /* LibraryPresenter.swift */,
 				D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */,
+				D8E5BC3E238AC31400AAC345 /* LibraryRouter.swift */,
 				D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */,
 				D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */,
 			);
@@ -320,6 +317,15 @@
 				FA54B0B4DA2CA0164598E2A4 /* Pods_AppleMusic.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF0A84E223AAB62C00B60372 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				EF0A84E323AAB64600B60372 /* TrackModel.swift */,
+				EF0A84E523AAB6B200B60372 /* DBManager.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		EF466E0723A1300B00DA98FA /* PMVolumeView */ = {
@@ -575,6 +581,7 @@
 				D8E5BC45238AC31400AAC345 /* LibraryRouter.swift in Sources */,
 				D8E5BC39238AC2FA00AAC345 /* SearchInteractor.swift in Sources */,
 				EF466E0623A11BDA00DA98FA /* UITableView + TableFlip.swift in Sources */,
+				EF0A84E423AAB64600B60372 /* TrackModel.swift in Sources */,
 				D8E5BC38238AC2FA00AAC345 /* SearchProtocols.swift in Sources */,
 				EF864DF4239ECF620088348F /* Extension + Nib.swift in Sources */,
 				D8E5BC18238AC20B00AAC345 /* AppDelegate.swift in Sources */,
@@ -589,6 +596,7 @@
 				EF3BC501239FD21C0089019E /* SearchingViewController.swift in Sources */,
 				EFDE389523928D17008260E8 /* UIView + Anchors.swift in Sources */,
 				EF8DBBD7239A6FF6003A034B /* Loadable.swift in Sources */,
+				EF0A84E623AAB6B200B60372 /* DBManager.swift in Sources */,
 				D8E5BC1A238AC20B00AAC345 /* SceneDelegate.swift in Sources */,
 				D8E5BC46238AC31400AAC345 /* LibraryViewController.swift in Sources */,
 				D88F2276239072DB00F95511 /* Songs.swift in Sources */,

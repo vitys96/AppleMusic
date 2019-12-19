@@ -15,5 +15,6 @@ target 'AppleMusic' do
   pod 'IQKeyboardManagerSwift'
   pod 'Alamofire'
   pod 'Marshal'
-  pod 'lottie-ios'у
+  pod 'lottie-ios'
+pod 'RealmSwift'
 end
