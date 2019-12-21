@@ -38,9 +38,15 @@ extension LibraryPresenter: LibraryPresenterInterface {
 
 // MARK: - LibraryInteractorOutput -
 extension LibraryPresenter: LibraryInteractorOutput {
-    func fetchedTracksFromDB(songs: [Songs]) {
-        print (songs.map({$0.songIconUrl100}))
-        self.view?.displayFetchedSongs(songs: songs)
+    func fetchedTracksFromDB(songs: [SearchCell.ViewModel]) {
+//        let rows = songs.map { song in
+//            SearchCell.ViewModel(trackName: song.trackName,
+//                                 artistName: song.artistName,
+//                                 collectionName: song.collectionName,
+//                                 songIconUrl: song.songIconUrl100,
+//                                 songMp4: song.songmp4)
+//        }
+        self.view?.displayFetchedSongs(songs: songs, shuffleButtonClicked: false)
     }
 }
 

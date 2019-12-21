@@ -31,8 +31,8 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Wgd-Rk-aeO" secondAttribute="height" multiplier="1:1" id="dT1-7s-v5A"/>
-                                <constraint firstAttribute="height" constant="300" id="t8G-cD-SG7"/>
-                                <constraint firstAttribute="width" constant="300" id="vgY-qs-r4d"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="t8G-cD-SG7"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="vgY-qs-r4d"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="TD3-KK-kTd" customClass="UIImageView">

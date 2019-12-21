@@ -42,6 +42,10 @@
 		EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FDA5923A81366002CC8F0 /* TopLibraryView.xib */; };
 		EF3BC4FF239FAFD30089019E /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */; };
 		EF3BC501239FD21C0089019E /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC500239FD21C0089019E /* SearchingViewController.swift */; };
+		EF3FCFCE23AD4A7000D339A2 /* NoSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3FCFCD23AD4A7000D339A2 /* NoSearch.json */; };
+		EF3FCFD023AD509C00D339A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FCFCF23AD509C00D339A2 /* Constants.swift */; };
+		EF3FCFD223AD50F900D339A2 /* Extension + UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FCFD123AD50F900D339A2 /* Extension + UIButton.swift */; };
+		EF3FCFD423AD511C00D339A2 /* Extension + GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FCFD323AD511C00D339A2 /* Extension + GCD.swift */; };
 		EF466E0023A0EFB100DA98FA /* PMVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF466DFF23A0EFB100DA98FA /* PMVolumeView.swift */; };
 		EF466E0223A0EFBD00DA98FA /* PMVolumeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF466E0123A0EFBD00DA98FA /* PMVolumeView.xib */; };
 		EF466E0423A11BAB00DA98FA /* Extension + TableDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF466E0323A11BAB00DA98FA /* Extension + TableDirector.swift */; };
@@ -104,6 +108,10 @@
 		EF0A84E523AAB6B200B60372 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		EF3BC500239FD21C0089019E /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
+		EF3FCFCD23AD4A7000D339A2 /* NoSearch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoSearch.json; sourceTree = "<group>"; };
+		EF3FCFCF23AD509C00D339A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EF3FCFD123AD50F900D339A2 /* Extension + UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIButton.swift"; sourceTree = "<group>"; };
+		EF3FCFD323AD511C00D339A2 /* Extension + GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + GCD.swift"; sourceTree = "<group>"; };
 		EF466DFF23A0EFB100DA98FA /* PMVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMVolumeView.swift; sourceTree = "<group>"; };
 		EF466E0123A0EFBD00DA98FA /* PMVolumeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PMVolumeView.xib; sourceTree = "<group>"; };
 		EF466E0323A11BAB00DA98FA /* Extension + TableDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + TableDirector.swift"; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 		D8895DD623956036006A7673 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EF3FCFCD23AD4A7000D339A2 /* NoSearch.json */,
 				D8895DD723959F35006A7673 /* NoConnection.json */,
 				D878901B23943FEB003E0938 /* empty.json */,
 			);
@@ -194,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				D88F226C2390671A00F95511 /* URLs */,
+				EF3FCFCF23AD509C00D339A2 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -264,11 +274,11 @@
 			isa = PBXGroup;
 			children = (
 				D8E5BC2D238AC2FA00AAC345 /* Search.storyboard */,
-				D8E5BC2E238AC2FA00AAC345 /* SearchPresenter.swift */,
-				D8E5BC2F238AC2FA00AAC345 /* SearchRouter.swift */,
-				D8E5BC30238AC2FA00AAC345 /* SearchViewController.swift */,
-				D8E5BC32238AC2FA00AAC345 /* SearchInteractor.swift */,
 				D8E5BC33238AC2FA00AAC345 /* SearchConfigurator.swift */,
+				D8E5BC30238AC2FA00AAC345 /* SearchViewController.swift */,
+				D8E5BC2E238AC2FA00AAC345 /* SearchPresenter.swift */,
+				D8E5BC32238AC2FA00AAC345 /* SearchInteractor.swift */,
+				D8E5BC2F238AC2FA00AAC345 /* SearchRouter.swift */,
 				D8E5BC31238AC2FA00AAC345 /* SearchProtocols.swift */,
 			);
 			path = Search;
@@ -278,11 +288,11 @@
 			isa = PBXGroup;
 			children = (
 				D8E5BC3C238AC31400AAC345 /* Library.storyboard */,
+				D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */,
 				D8E5BC3F238AC31400AAC345 /* LibraryViewController.swift */,
 				D8E5BC3D238AC31400AAC345 /* LibraryPresenter.swift */,
 				D8E5BC41238AC31400AAC345 /* LibraryInteractor.swift */,
 				D8E5BC3E238AC31400AAC345 /* LibraryRouter.swift */,
-				D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */,
 				D8E5BC40238AC31400AAC345 /* LibraryProtocols.swift */,
 			);
 			path = Library;
@@ -429,6 +439,8 @@
 				EF466E0323A11BAB00DA98FA /* Extension + TableDirector.swift */,
 				EF466E0523A11BDA00DA98FA /* UITableView + TableFlip.swift */,
 				EFABB70323A97C62004889F9 /* Extension + CGFloat.swift */,
+				EF3FCFD123AD50F900D339A2 /* Extension + UIButton.swift */,
+				EF3FCFD323AD511C00D339A2 /* Extension + GCD.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -501,6 +513,7 @@
 				EF466E0223A0EFBD00DA98FA /* PMVolumeView.xib in Resources */,
 				EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */,
 				EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */,
+				EF3FCFCE23AD4A7000D339A2 /* NoSearch.json in Resources */,
 				D8E5BC34238AC2FA00AAC345 /* Search.storyboard in Resources */,
 				EF8DBBDD239A8A1D003A034B /* TrackDetailView.xib in Resources */,
 				D8895DD823959F35006A7673 /* NoConnection.json in Resources */,
@@ -562,7 +575,9 @@
 				EFDE388D239285A0008260E8 /* SearchCell.swift in Sources */,
 				D8895DCF2394E1B2006A7673 /* LottieView.swift in Sources */,
 				EF3BC4FF239FAFD30089019E /* UIViewController + Storyboard.swift in Sources */,
+				EF3FCFD423AD511C00D339A2 /* Extension + GCD.swift in Sources */,
 				EFABB70723AA2425004889F9 /* BounceButton.swift in Sources */,
+				EF3FCFD223AD50F900D339A2 /* Extension + UIButton.swift in Sources */,
 				EF8DBBDB239A8A10003A034B /* TrackDetailView.swift in Sources */,
 				D8895DD42394E27C006A7673 /* AppTheme.swift in Sources */,
 				EF864DF2239D631A0088348F /* Extension + CMTime.swift in Sources */,
@@ -585,6 +600,7 @@
 				D8E5BC38238AC2FA00AAC345 /* SearchProtocols.swift in Sources */,
 				EF864DF4239ECF620088348F /* Extension + Nib.swift in Sources */,
 				D8E5BC18238AC20B00AAC345 /* AppDelegate.swift in Sources */,
+				EF3FCFD023AD509C00D339A2 /* Constants.swift in Sources */,
 				EF466E0023A0EFB100DA98FA /* PMVolumeView.swift in Sources */,
 				D8E5BC44238AC31400AAC345 /* LibraryPresenter.swift in Sources */,
 				D8E5BC47238AC31400AAC345 /* LibraryProtocols.swift in Sources */,

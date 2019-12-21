@@ -46,7 +46,7 @@ extension LibraryPresenterInterface {
 
 //MARK: Interactor -
 protocol LibraryInteractorOutput: class {
-    func fetchedTracksFromDB(songs: [Songs])
+    func fetchedTracksFromDB(songs: [SearchCell.ViewModel])
 
     /* Interactor -> Presenter */
 }
@@ -64,6 +64,6 @@ protocol LibraryView: class, Alertable, Loadable {
 
     var presenter: LibraryPresenterInterface?  { get set }
     func displayEmptyView(animationName: String, title: String, message: String)
-    func displayFetchedSongs(songs: [Songs])
+    func displayFetchedSongs(songs: [SearchCell.ViewModel], shuffleButtonClicked: Bool)
     /* Presenter -> ViewController */
 }

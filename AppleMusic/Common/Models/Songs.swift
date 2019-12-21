@@ -15,13 +15,13 @@ class Songs: Unmarshaling {
     var trackName: String?
     var collectionName: String?
     var songIconUrl100: String?
-    var songm4p: String?
+    var songmp4: String?
 
     required init(object json: MarshaledObject) {
         songIconUrl100 = try? json.value(for: "artworkUrl100")
         artistName = try? json.value(for: "artistName")
         trackName = try? json.value(for: "trackName")
         collectionName = try? json.value(for: "collectionName")
-        songm4p = try? json.value(for: "previewUrl")
+        songmp4 = try? json.value(for: "previewUrl")
     }
 }

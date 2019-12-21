@@ -48,13 +48,13 @@ class TrackDetailView: UIView {
         NotificationCenter.default.addObserver(self, selector: #selector(trackIsFinished), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
-    func configure(with data: Songs) {
+    func configure(with data: SearchCell.ViewModel) {
         miniTrackTitleLabel.text = data.trackName
-        let largeImageUrl = data.songIconUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+        let largeImageUrl = data.songIconUrl?.replacingOccurrences(of: "100x100", with: "600x600")
         guard let url = URL(string: largeImageUrl ?? "") else { return }
         miniTrackImageView.sd_setImage(with: url, completed: nil)
         trackImageView.sd_setImage(with: url, completed: nil)
-        playTrack(previewUrl: data.songm4p)
+        playTrack(previewUrl: data.songMp4)
         playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         miniPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         trackTitleLabel.text = data.trackName
@@ -67,8 +67,6 @@ class TrackDetailView: UIView {
         guard let url = URL(string: previewUrl ?? "") else { return }
         let playerItem = AVPlayerItem(url: url)
         player.replaceCurrentItem(with: playerItem)
-        
-//        player.volume = AVAudioSession.sharedInstance().outputVolume
         player.play()
     }
     
@@ -123,17 +121,17 @@ class TrackDetailView: UIView {
         let translation = gesture.translation(in: self.superview)
         switch gesture.state {
         case .changed:
-            maximizedStackView.transform = CGAffineTransform(translationX: 0, y: translation.y)
+            self.transform = CGAffineTransform(translationX: 0, y: translation.y)
 //            self.maximizedStackView.alpha = 1 - translation.y / 200
-            if translation.y < 200 {
-                self.alpha = 1 - translation.y / 200
-            }
+//            let newAlpha = 1 - translation.y / 200
+//            self.miniTrackView.alpha = translation.y / 400
+//                self.topStackView.alpha = 1 - translation.y / 200
         case .ended:
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.maximizedStackView.transform = .identity
+                self.transform = .identity
                 if translation.y > 50 {
                     self.tabBarDelegate?.minimazeTrackDetailController()
-                    self.alpha = 1
+//                    self.alpha = 1
                 }
             }, completion: nil)
          @unknown default:
@@ -175,7 +173,6 @@ class TrackDetailView: UIView {
             if translation.y < -200 || velocity.y < -500 {
                 self.tabBarDelegate?.maximizeTrackDetailController(viewModel: nil)
             } else {
-                self.miniTrackView.alpha = 1
                 self.maximizedStackView.alpha = 0
             }
         }, completion: nil)

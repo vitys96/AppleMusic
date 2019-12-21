@@ -24,14 +24,19 @@ class SearchCell: UITableViewCell, ConfigurableCell {
         return 85
     }
     private let realm = try! Realm()
-    private var songViewModel: Songs?
+    var songViewModel: ViewModel?
+    var addToLibraryAction: ((ViewModel) -> Void)?
     
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        addTrack.add(for: .touchUpInside) { [weak self] in
+            guard let self = self else {return}
+            TableCellAction(key: CellActions.addToLibrary.rawValue, sender: self).invoke()
+        }
     }
     
-    func configure(with data: Songs) {
+    func configure(with data: ViewModel) {
         songViewModel = data
         let results = realm.objects(TrackModel.self)
         let lal: [Songs] = results.map {
@@ -51,50 +56,26 @@ class SearchCell: UITableViewCell, ConfigurableCell {
         artistName.text = data.artistName
         trackName.text = data.trackName
         collectionName.text = data.collectionName
-        artistImageView.sd_setImage(with: URL(string: data.songIconUrl100 ?? "")) {[weak self] (image, _, _, _) in
-            if let image = image?.withRenderingMode(.alwaysOriginal) {
-                self?.artistImageView.image = image
+        if let image = data.trackImage {
+            self.artistImageView.image = image
+        } else {
+            artistImageView.sd_setImage(with: URL(string: data.songIconUrl ?? "")) {[weak self] (image, _, _, _) in
+                if let image = image?.withRenderingMode(.alwaysOriginal) {
+                    self?.artistImageView.image = image
+                }
             }
         }
-    }
-    
-    @IBAction func addToLibrary(_ sender: UIButton) {
-        let song = TrackModel()
         
-        guard let trackName = trackName.text,
-        let artistName = artistName.text,
-        let collectionName = collectionName.text,
-        let imageData = artistImageView.image?.pngData(),
-        let songsUrl = songViewModel?.songIconUrl100
-        else { return }
-        
-        song.trackID = DBManager.sharedInstance.getDataFromSiteList().count
-        song.trackName = trackName
-        song.artistName = artistName
-        song.collectionName = collectionName
-        song.trackImageView = imageData
-        song.songIconUrl100 = songsUrl
-        DBManager.sharedInstance.addDataSiteList(object: song)
-    }
-    
-    @IBAction func toKnowInfo(_ sender: UIButton) {
-        let results = realm.objects(TrackModel.self)
-        print (results.count)
     }
 }
 
-extension Results {
-    func toArray<T>(type: T.Type) -> [T] {
-        return compactMap { $0 as? T }
+extension SearchCell {
+    struct ViewModel {
+        let trackName: String?
+        let artistName: String?
+        let collectionName: String?
+        let songIconUrl: String?
+        let songMp4: String?
+        let trackImage: UIImage?
     }
 }
-
-//extension SearchCell {
-//    struct Data {
-//        let trackName: String?
-//        let artistName: String?
-//        let collectionName: String?
-//        let songIconUrl: String?
-//        let songMusicMp4: String?
-//    }
-//}

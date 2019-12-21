@@ -34,16 +34,16 @@ class TopLibraryView: UIView {
     }
     
     private func configureUI() {
-//        [playButton, shuffleButton].forEach {
-//            $0?.clipsToBounds = true
-//            $0?.cornerRadius = 10
-//        }
-        playButton.addTarget(self, action: #selector(playButtonTocuhed), for: .touchUpInside)
+        playButton.addTarget(self, action: #selector(playButtonTouched), for: .touchUpInside)
+        shuffleButton.addTarget(self, action: #selector(shuffleButtonTouched), for: .touchUpInside)
     }
 }
 
 extension TopLibraryView {
-    @objc private func playButtonTocuhed(sender: UIButton) {
+    @objc private func playButtonTouched(sender: UIButton) {
         playButtonTouch?()
+    }
+    @objc private func shuffleButtonTouched(sender: UIButton) {
+        shuffleButtonTouch?()
     }
 }

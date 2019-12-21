@@ -95,6 +95,11 @@ open class TableDirector: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView?.reloadData()
     }
     
+    open func reloadSection() {
+//        let indexSet = IndexSet(integersIn: 1...1)
+        tableView?.reloadSections([1], with: .fade)
+    }
+    
     // MARK: - Private
     private func row(at indexPath: IndexPath) -> Row? {
         if indexPath.section < sections.count && indexPath.row < sections[indexPath.section].rows.count {

@@ -34,7 +34,7 @@
                                     <rect key="frame" x="168.5" y="0.0" width="158.5" height="68"/>
                                     <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="tintColor" red="0.80784314869999996" green="0.027450980619999999" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" image="arrow.2.circlepath" catalog="system"/>
+                                    <state key="normal" image="shuffle" catalog="system"/>
                                 </button>
                             </subviews>
                         </stackView>
@@ -61,7 +61,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.2.circlepath" catalog="system" width="64" height="50"/>
         <image name="play.fill" catalog="system" width="58" height="64"/>
+        <image name="shuffle" catalog="system" width="64" height="46"/>
     </resources>
 </document>

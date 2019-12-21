@@ -9,6 +9,6 @@
 import Foundation
 
 protocol TrackMovingDelegate: class {
-    func moveBackForPreviousTrack() -> Songs?
-    func moveForwardForNextTrack() -> Songs?
+    func moveBackForPreviousTrack() -> SearchCell.ViewModel?
+    func moveForwardForNextTrack() -> SearchCell.ViewModel?
 }

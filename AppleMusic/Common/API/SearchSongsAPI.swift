@@ -10,28 +10,34 @@ import Foundation
 
 struct SearchSongsAPI: MainAPI {
     static func getSongs(searchText: String, completion: ServerResult?)  {
+        OffsetConfig.page += APIConfig.one.rawValue
         let params = [
             "term"      :   searchText,
-            "limit"     :   10,
+            "limit"     :   OffsetConfig.limit,
             "media"     :   "music",
-            "offset"    :   Links.offset
+            "offset"    :   OffsetConfig.offset
             ] as [String : AnyObject]
-        print (Links.offset)
+        print ("Offset: \(OffsetConfig.offset)")
         sendRequest(type: .get, url: SearchSongsURL.search.rawValue, parameters: params, headers: nil, completion: completion)
     }
 }
 
-class Links {
+//class Links {
+//    static var offset: Int {
+//        return Links.page * Links.limit
+//    }
+//    static var limit: Int = 10
+//    static var page: Int = 0
+//}
+
+class OffsetConfig {
     static var offset: Int {
-        return Links.page * Links.limit
+        return OffsetConfig.limit * OffsetConfig.page
     }
     static var limit: Int = 10
     static var page: Int = 0
 }
 
-enum Number: Int {
+enum APIConfig: Int {
     case one = 1
-    var number: Int {
-        return self.rawValue
-    }
 }

@@ -10,5 +10,5 @@ import Foundation
 
 protocol MainTabBarControllerDelegate: class {
     func minimazeTrackDetailController()
-    func maximizeTrackDetailController(viewModel: Songs?)
+    func maximizeTrackDetailController(viewModel: SearchCell.ViewModel?)
 }

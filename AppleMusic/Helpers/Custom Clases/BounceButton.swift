@@ -24,8 +24,8 @@ class BounceButton: UIButton {
     
     private func setupButton() {
         layer.cornerRadius = 10
-        layer.borderWidth = 0.8
-        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 0.3
+        layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     private func setupShadow() {
         layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor

@@ -22,12 +22,10 @@ class SearchViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private var timer: Timer?
     private let emptyView = LottieView()
-    private var songsViewModel: [Songs]?
+    private var songsViewModel: [SearchCell.ViewModel]?
     weak var tabBarDelegate: MainTabBarControllerDelegate?
-    var didTouchCell: ((Songs) -> Void)?
     private var serachingText: String?
     private var isFetching: Bool = false
-    
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView! {
@@ -54,28 +52,28 @@ extension SearchViewController: SearchView {
         emptyView.isHidden = false
     }
     
-    func displayFetchedSongs(songs: [Songs]) {
+    func displayFetchedSongs(songs: [SearchCell.ViewModel]) {
         emptyView.animate(.fade(0))
         tableView.animate(.fade(1))
         emptyView.isHidden = true
         self.songsViewModel = songs
         let section = TableSection()
+        
         let configureAction = TableRowAction<SearchCell>.init(.configure) { (options) in
             options.cell?.backgroundColor = .cellBackground
         }
-        let rowSelectionAction1 = TableRowAction<SearchCell>.init(.canDelete) { (options) -> Bool in
-            return true
-        }
-        let rowSelectionAction = TableRowAction<SearchCell>.init(.select) { [weak self] options in
-            guard let self = self else { return }
-            let index: Int = options.indexPath.row
-            let cellViewModel = songs[index]
-            self.didTouchCell?(cellViewModel)
-            self.tableView.selectRow(at: options.indexPath, animated: false, scrollPosition: .none)
+        let rowSelectionAction = TableRowAction<SearchCell>.init(.select) { [weak self] cellOption in
+            guard let self = self, let cell = cellOption.cell, let cellViewModel = cell.songViewModel else { return }
+            self.tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
+            self.tableView.selectRow(at: cellOption.indexPath, animated: false, scrollPosition: .none)
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
         }
-        let rows: [TableRow<SearchCell>] = songs.enumerated().map{
-            TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction, rowSelectionAction1])
+        let addToLibraryAction = TableRowAction<SearchCell>(CellActions.addToLibrary.rawValue) { (cellOption) in
+            guard let cell = cellOption.cell, let cellViewModel = cell.songViewModel else { return }
+            self.presenter?.saveTrackInDB(track: cellViewModel)
+        }
+        let rows: [TableRow<SearchCell>] = songs.enumerated().map {
+            TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction, addToLibraryAction])
         }
         section.append(rows: rows)
         tableDirector.append(section: section)
@@ -134,7 +132,7 @@ extension SearchViewController: UIScrollViewDelegate {
     private func fetchingMore(text: String) {
         isFetching = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            Links.page += Number.one.number
+            
             self.presenter?.fetchData(searchText: text)
             self.isFetching = false
         }
@@ -142,7 +140,7 @@ extension SearchViewController: UIScrollViewDelegate {
 }
 
 extension SearchViewController: TrackMovingDelegate {
-    private func getTrack(isForwardTrack: Bool) -> Songs? {
+    private func getTrack(isForwardTrack: Bool) -> SearchCell.ViewModel? {
         guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
         tableView.deselectRow(at: indexPath, animated: true)
         var nextIndexPath: IndexPath!
@@ -162,11 +160,11 @@ extension SearchViewController: TrackMovingDelegate {
         return song
     }
     
-    func moveBackForPreviousTrack() -> Songs? {
+    func moveBackForPreviousTrack() -> SearchCell.ViewModel? {
         return getTrack(isForwardTrack: false)
     }
     
-    func moveForwardForNextTrack() -> Songs? {
+    func moveForwardForNextTrack() -> SearchCell.ViewModel? {
         return getTrack(isForwardTrack: true)
     }
 }

@@ -22,13 +22,10 @@ class LibraryInteractor: LibraryInteractorInput {
     // MARK: - LibraryInteractorInput -
     func fetchTracksFromDB() {
         let results = realm.objects(TrackModel.self)
-        let songsDB: [Songs] = results.map {
-        Songs(object:
-            ["artistName" : $0.artistName,
-             "trackName" : $0.trackName,
-             "artworkUrl100": $0.songIconUrl100
-            ]
-        )}
+        let songsDB: [SearchCell.ViewModel] = results.map {
+            let image = UIImage(data: $0.trackImageView ?? Data())
+            return SearchCell.ViewModel(trackName: $0.trackName, artistName: $0.artistName, collectionName: $0.collectionName, songIconUrl: $0.songIconUrl100, songMp4: $0.songm4p, trackImage: image)
+        }
         self.presenter?.fetchedTracksFromDB(songs: songsDB)
     }
 }

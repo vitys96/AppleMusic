@@ -29,6 +29,10 @@ class SearchPresenter {
 
 // MARK: - SearchPresenterInterface -
 extension SearchPresenter: SearchPresenterInterface {
+    func saveTrackInDB(track: SearchCell.ViewModel) {
+        self.interactor?.saveTrackIntoDatabase(song: track)
+    }
+    
     func fetchData(searchText: String) {
         self.view?.startLoading()
         self.interactor?.fetchSearchingData(searchText: searchText)
@@ -39,7 +43,7 @@ extension SearchPresenter: SearchPresenterInterface {
 extension SearchPresenter: SearchInteractorOutput {
     func fetchedSearchList(error: Error) {
         self.view?.stopLoading()
-        view?.displayEmptyView(animationName: "empty", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
+        view?.displayEmptyView(animationName: "NoConnection", title: "Проблемы с сетью", message: "Отсутствие или не стабильное подключение к сети")
     }
     
     func fetchedFully() {
@@ -49,12 +53,19 @@ extension SearchPresenter: SearchInteractorOutput {
     func fetchedSearchList(lists: [Songs]) {
         self.view?.stopLoading()
         guard lists.count > 0 else {
-            view?.displayEmptyView(animationName: "NoConnection", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
+            view?.displayEmptyView(animationName: "empty", title: "Ничего не найдено", message: "Пожалуйста, попробуйте снова")
             return
         }
-//
-//        let rows = lists.map{SearchCell.Data(trackName: $0.trackName, artistName: $0.artistName, collectionName: $0.collectionName, songIconUrl: $0.artworkUrl100, songMusicMp4: $0.songm4p)}
-        self.view?.displayFetchedSongs(songs: lists)
+        
+        let rows = lists.map { song in
+            SearchCell.ViewModel(trackName: song.trackName,
+                                 artistName: song.artistName,
+                                 collectionName: song.collectionName,
+                                 songIconUrl: song.songIconUrl100,
+                                 songMp4: song.songmp4,
+                                 trackImage: nil)
+        }
+        self.view?.displayFetchedSongs(songs: rows)
     }
 }
 

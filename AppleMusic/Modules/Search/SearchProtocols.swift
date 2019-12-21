@@ -27,6 +27,7 @@ protocol SearchPresenterInterface: class {
     var interactor: SearchInteractorInput? { get set }
     
     func fetchData(searchText: String)
+    func saveTrackInDB(track: SearchCell.ViewModel)
     
     // MARK: - Lifecycle -
     func viewDidLoad()
@@ -57,6 +58,7 @@ protocol SearchInteractorInput: class {
 
     var presenter: SearchInteractorOutput?  { get set }
     func fetchSearchingData(searchText: String)
+    func saveTrackIntoDatabase(song: SearchCell.ViewModel)
     /* Presenter -> Interactor */
 }
 
@@ -64,7 +66,7 @@ protocol SearchInteractorInput: class {
 protocol SearchView: class, Alertable, Loadable {
 
     var presenter: SearchPresenterInterface?  { get set }
-    func displayFetchedSongs(songs: [Songs])
+    func displayFetchedSongs(songs: [SearchCell.ViewModel])
     func displayEmptyView(animationName: String, title: String, message: String)
     /* Presenter -> ViewController */
 }
