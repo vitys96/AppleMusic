@@ -13,9 +13,9 @@ import UIKit
 import TableKit
 import Lottie
 import Motion
+import SPAlert
 
 class SearchViewController: UIViewController {
-    
     // MARK: - Properties
     var presenter: SearchPresenterInterface?
     private var tableDirector: TableDirector!
@@ -59,14 +59,28 @@ extension SearchViewController: SearchView {
         self.songsViewModel = songs
         let section = TableSection()
         
-        let configureAction = TableRowAction<SearchCell>.init(.configure) { (options) in
-            options.cell?.backgroundColor = .cellBackground
+        let configureAction = TableRowAction<SearchCell>.init(.configure) { cellOption in
+            guard let cell = cellOption.cell else { return }
+            cell.backgroundColor = .cellBackground
+            cell.selectionStyle = .none
         }
         let rowSelectionAction = TableRowAction<SearchCell>.init(.select) { [weak self] cellOption in
-            guard let self = self, let cell = cellOption.cell, let cellViewModel = cell.songViewModel else { return }
+            guard let self = self,
+                let cell = cellOption.cell,
+                let cellViewModel = cell.songViewModel,
+                let indexPath = self.tableView.indexPathForSelectedRow
+                else { return }
+//            if cell.isSelected {
+//                cell.lottieView.isHidden = false
+//                cell.lottieView.play()
+//            } else {
+//                cell.lottieView.isHidden = true
+//                cell.lottieView.stop()
+//            }
             self.tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
-            self.tableView.selectRow(at: cellOption.indexPath, animated: false, scrollPosition: .none)
+            self.tableView.selectRow(at: cellOption.indexPath, animated: true, scrollPosition: .none)
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
+            
         }
         let addToLibraryAction = TableRowAction<SearchCell>(CellActions.addToLibrary.rawValue) { (cellOption) in
             guard let cell = cellOption.cell, let cellViewModel = cell.songViewModel else { return }
@@ -119,19 +133,19 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 extension SearchViewController: UIScrollViewDelegate {
-        func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-            let offsetY = scrollView.contentOffset.y
-            let contentHeight = scrollView.contentSize.height
-            if offsetY > contentHeight / 1.1 - scrollView.frame.height {
-                if !isFetching {
-                    guard let searchText = serachingText else { return }
-                    fetchingMore(text: searchText)
-                }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY > contentHeight / 1.1 - scrollView.frame.height {
+            if !isFetching {
+                guard let searchText = serachingText else { return }
+                fetchingMore(text: searchText)
             }
         }
+    }
     private func fetchingMore(text: String) {
         isFetching = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             
             self.presenter?.fetchData(searchText: text)
             self.isFetching = false

@@ -26,6 +26,7 @@ PODS:
   - SDWebImage (5.3.2):
     - SDWebImage/Core (= 5.3.2)
   - SDWebImage/Core (5.3.2)
+  - SPAlert (2.0.11)
   - TableKit (2.10.0)
 
 DEPENDENCIES:
@@ -39,12 +40,14 @@ DEPENDENCIES:
   - PromiseKit/MapKit
   - RealmSwift
   - SDWebImage
+  - SPAlert
   - TableKit
 
 SPEC REPOS:
   https://github.com/cocoaPods/specs.git:
     - Realm
     - RealmSwift
+    - SPAlert
   trunk:
     - Alamofire
     - IQKeyboardManagerSwift
@@ -75,8 +78,9 @@ SPEC CHECKSUMS:
   Realm: 25f0a8244cbb1c2271c922963ea8666fc2d8104d
   RealmSwift: 9e2657b33764f80e4a4dffd6d440e24715782052
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
+  SPAlert: fb269468b9a6a795259d9fefff403e2e28200bd1
   TableKit: 65645d0dd786e21dc61464da59ad770c60a07282
 
-PODFILE CHECKSUM: 1651c633563afccc82346efc4e6d1684fb81b031
+PODFILE CHECKSUM: 729d9ec174cffd18495081b3fa1c46072e25a1b9
 
 COCOAPODS: 1.8.4

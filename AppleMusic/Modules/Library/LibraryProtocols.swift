@@ -26,6 +26,7 @@ protocol LibraryWireframeInterface: class {
 protocol LibraryPresenterInterface: class {
 
     var interactor: LibraryInteractorInput? { get set }
+    func deleteTrackFromDB(id: Int)
     
     // MARK: - Lifecycle -
     func viewDidLoad()
@@ -55,7 +56,7 @@ protocol LibraryInteractorInput: class {
 
     var presenter: LibraryInteractorOutput?  { get set }
     func fetchTracksFromDB()
-
+    func deleteTrackFromDB(id: Int)
     /* Presenter -> Interactor */
 }
 

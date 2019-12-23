@@ -184,6 +184,10 @@
                                     </constraints>
                                 </view>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="RDF-Jk-bw6" firstAttribute="leading" secondItem="l4L-S9-VQ8" secondAttribute="leading" id="9Ga-wC-Rzq"/>
+                                <constraint firstAttribute="trailing" secondItem="RDF-Jk-bw6" secondAttribute="trailing" id="IkO-x2-GHR"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                 </stackView>

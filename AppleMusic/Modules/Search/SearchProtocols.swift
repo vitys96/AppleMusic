@@ -51,6 +51,7 @@ protocol SearchInteractorOutput: class {
     func fetchedSearchList(lists: [Songs])
     func fetchedSearchList(error: Error)
     func fetchedFully()
+    func tracksWasSavedSuccesfully()
     /* Interactor -> Presenter */
 }
 

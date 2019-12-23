@@ -14,8 +14,6 @@ import RealmSwift
 
 class SearchInteractor: SearchInteractorInput {
     
-    
-    
     // MARK: - Properties
     weak var presenter: SearchInteractorOutput?
     
@@ -23,7 +21,7 @@ class SearchInteractor: SearchInteractorInput {
     
     func fetchSearchingData(searchText: String) {
         SearchingManager.searchSongs(searchingText: searchText)
-            .done {[weak self] (searchList) in
+         .done {[weak self] (searchList) in
                 self?.presenter?.fetchedSearchList(lists: searchList)
         }.catch {[weak self] (error) in
             self?.presenter?.fetchedSearchList(error: error)
@@ -43,14 +41,14 @@ class SearchInteractor: SearchInteractorInput {
             let songmp4 = song.songMp4
             else { return }
         
-        songRealm.trackID = DBManager.sharedInstance.getDataFromSiteList().count
+        songRealm.trackID = DBManager.sharedInstance.getDataFromTrackList().count
         songRealm.trackName = trackName
         songRealm.artistName = artistName
         songRealm.collectionName = collectionName
         songRealm.songIconUrl100 = songIconUrl
         songRealm.songm4p = songmp4
-        DBManager.sharedInstance.addDataSiteList(object: songRealm)
-        
+        DBManager.sharedInstance.addDataTrackList(object: songRealm)
+        self.presenter?.tracksWasSavedSuccesfully()
     }
     
 }

@@ -39,6 +39,8 @@
 		D8E5BC49238AC31400AAC345 /* LibraryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */; };
 		EF0A84E423AAB64600B60372 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A84E323AAB64600B60372 /* TrackModel.swift */; };
 		EF0A84E623AAB6B200B60372 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0A84E523AAB6B200B60372 /* DBManager.swift */; };
+		EF17041123B1027900406D2E /* isPlaying2.json in Resources */ = {isa = PBXBuildFile; fileRef = EF17041023B1027900406D2E /* isPlaying2.json */; };
+		EF17041323B103A800406D2E /* isPlaying.json in Resources */ = {isa = PBXBuildFile; fileRef = EF17041223B103A800406D2E /* isPlaying.json */; };
 		EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FDA5923A81366002CC8F0 /* TopLibraryView.xib */; };
 		EF3BC4FF239FAFD30089019E /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */; };
 		EF3BC501239FD21C0089019E /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC500239FD21C0089019E /* SearchingViewController.swift */; };
@@ -106,6 +108,8 @@
 		D8E5BC42238AC31400AAC345 /* LibraryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryConfigurator.swift; sourceTree = "<group>"; };
 		EF0A84E323AAB64600B60372 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
 		EF0A84E523AAB6B200B60372 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		EF17041023B1027900406D2E /* isPlaying2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isPlaying2.json; sourceTree = "<group>"; };
+		EF17041223B103A800406D2E /* isPlaying.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isPlaying.json; sourceTree = "<group>"; };
 		EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		EF3BC500239FD21C0089019E /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		EF3FCFCD23AD4A7000D339A2 /* NoSearch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoSearch.json; sourceTree = "<group>"; };
@@ -182,9 +186,11 @@
 		D8895DD623956036006A7673 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EF17041223B103A800406D2E /* isPlaying.json */,
 				EF3FCFCD23AD4A7000D339A2 /* NoSearch.json */,
 				D8895DD723959F35006A7673 /* NoConnection.json */,
 				D878901B23943FEB003E0938 /* empty.json */,
+				EF17041023B1027900406D2E /* isPlaying2.json */,
 			);
 			path = LottieFiles;
 			sourceTree = "<group>";
@@ -430,9 +436,9 @@
 		EFDE389123928CA4008260E8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EF8DBBD1239A6F6A003A034B /* Extension + ViewController.swift */,
 				EFDE389223928CB4008260E8 /* Extension + UIView.swift */,
 				EF864DF1239D631A0088348F /* Extension + CMTime.swift */,
-				EF8DBBD1239A6F6A003A034B /* Extension + ViewController.swift */,
 				EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */,
 				EFDE389423928D17008260E8 /* UIView + Anchors.swift */,
 				EF864DF3239ECF620088348F /* Extension + Nib.swift */,
@@ -513,9 +519,11 @@
 				EF466E0223A0EFBD00DA98FA /* PMVolumeView.xib in Resources */,
 				EFDE3890239285BE008260E8 /* SearchCell.xib in Resources */,
 				EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */,
+				EF17041123B1027900406D2E /* isPlaying2.json in Resources */,
 				EF3FCFCE23AD4A7000D339A2 /* NoSearch.json in Resources */,
 				D8E5BC34238AC2FA00AAC345 /* Search.storyboard in Resources */,
 				EF8DBBDD239A8A1D003A034B /* TrackDetailView.xib in Resources */,
+				EF17041323B103A800406D2E /* isPlaying.json in Resources */,
 				D8895DD823959F35006A7673 /* NoConnection.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

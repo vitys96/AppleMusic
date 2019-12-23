@@ -33,7 +33,23 @@ class LibraryPresenter {
 
 // MARK: - LibraryPresenterInterface -
 extension LibraryPresenter: LibraryPresenterInterface {
+    func deleteTrackFromDB(id: Int) {
+        self.interactor?.deleteTrackFromDB(id: id)
+    }
     
+//    func deleteTrackFromDB(song: [SearchCell.ViewModel]) {
+//        let lal = TrackModel()
+//        _ = song.map { track in
+//            
+//            lal.artistName = track.artistName!
+//            lal.trackName = track.trackName!
+//            lal.collectionName = track.collectionName!
+//            lal.songm4p = track.songMp4!
+//            lal.songIconUrl100 = track.songIconUrl!
+//        }
+//        self.interactor?.deleteTrackFromDB(track: lal)
+//        
+//    }
 }
 
 // MARK: - LibraryInteractorOutput -

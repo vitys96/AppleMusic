@@ -14,6 +14,7 @@ import RealmSwift
 
 class LibraryInteractor: LibraryInteractorInput {
     
+    
     private let realm = try! Realm()
     
     // MARK: - Properties
@@ -21,11 +22,17 @@ class LibraryInteractor: LibraryInteractorInput {
     
     // MARK: - LibraryInteractorInput -
     func fetchTracksFromDB() {
-        let results = realm.objects(TrackModel.self)
+        let results = DBManager.sharedInstance.getDataFromTrackList()
         let songsDB: [SearchCell.ViewModel] = results.map {
             let image = UIImage(data: $0.trackImageView ?? Data())
-            return SearchCell.ViewModel(trackName: $0.trackName, artistName: $0.artistName, collectionName: $0.collectionName, songIconUrl: $0.songIconUrl100, songMp4: $0.songm4p, trackImage: image)
+            return SearchCell.ViewModel(id: $0.trackID, trackName: $0.trackName, artistName: $0.artistName, collectionName: $0.collectionName, songIconUrl: $0.songIconUrl100, songMp4: $0.songm4p, trackImage: image)
         }
         self.presenter?.fetchedTracksFromDB(songs: songsDB)
+    }
+    
+    func deleteTrackFromDB(id: Int) {
+        if let trackToDelete = realm.objects(TrackModel.self).filter("trackID = \(id)").first {
+           DBManager.sharedInstance.deleteTrackFromDb(object: trackToDelete)
+        }
     }
 }

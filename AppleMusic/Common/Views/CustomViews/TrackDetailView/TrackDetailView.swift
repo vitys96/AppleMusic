@@ -119,14 +119,17 @@ class TrackDetailView: UIView {
     
     @objc private func handleDismissPan(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.superview)
-        switch gesture.state {
-        case .changed:
+        if gesture.state == .changed {
+//        case .changed:
             self.transform = CGAffineTransform(translationX: 0, y: translation.y)
 //            self.maximizedStackView.alpha = 1 - translation.y / 200
 //            let newAlpha = 1 - translation.y / 200
 //            self.miniTrackView.alpha = translation.y / 400
 //                self.topStackView.alpha = 1 - translation.y / 200
-        case .ended:
+        }
+        if gesture.state == .ended {
+            
+//        case .ended:
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.transform = .identity
                 if translation.y > 50 {
@@ -134,8 +137,8 @@ class TrackDetailView: UIView {
 //                    self.alpha = 1
                 }
             }, completion: nil)
-         @unknown default:
-            print ("lalal")
+//         @unknown default:
+//            print ("lalal")
         }
 }
     
@@ -211,6 +214,7 @@ class TrackDetailView: UIView {
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             playPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             largingTrackImageView()
+            
         } else {
             player.pause()
             miniPlayPauseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)

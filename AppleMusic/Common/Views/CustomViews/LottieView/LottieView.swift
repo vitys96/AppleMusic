@@ -55,7 +55,7 @@ class LottieView: UIView {
                 lottieName: String,
                 needMoveViewToTop: Bool = false,
                 buttonData: ButtonData? = nil,
-                animationSize: CGSize = CGSize(width: 150, height: 120),
+                animationSize: CGSize = CGSize(width: 300, height: 300),
                 animationViewContentMode: ContentMode = .scaleAspectFill) {
         animationWidthConstraint.constant = animationSize.width
         animationHeightConstraint.constant = animationSize.height
@@ -125,6 +125,6 @@ extension LottieView {
     struct ButtonData {
         var title: String
         var backgroundColor: UIColor
-        var selectionAction: ()->Void
+        var selectionAction: () -> Void
     }
 }

@@ -41,6 +41,10 @@ extension SearchPresenter: SearchPresenterInterface {
 
 // MARK: - SearchInteractorOutput -
 extension SearchPresenter: SearchInteractorOutput {
+    func tracksWasSavedSuccesfully() {
+        self.view?.showAddedToLibraryAlert(title: "Добавлено")
+    }
+    
     func fetchedSearchList(error: Error) {
         self.view?.stopLoading()
         view?.displayEmptyView(animationName: "NoConnection", title: "Проблемы с сетью", message: "Отсутствие или не стабильное подключение к сети")
@@ -58,7 +62,8 @@ extension SearchPresenter: SearchInteractorOutput {
         }
         
         let rows = lists.map { song in
-            SearchCell.ViewModel(trackName: song.trackName,
+            SearchCell.ViewModel(id: song.songID,
+                                 trackName: song.trackName,
                                  artistName: song.artistName,
                                  collectionName: song.collectionName,
                                  songIconUrl: song.songIconUrl100,

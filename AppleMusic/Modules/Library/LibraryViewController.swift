@@ -11,15 +11,17 @@
 
 import UIKit
 import TableKit
+import RealmSwift
 
 class LibraryViewController: UIViewController {
     // MARK: - Properties
-	var presenter: LibraryPresenterInterface?
+    var presenter: LibraryPresenterInterface?
     private var tableDirector: TableDirector!
     var topLibraryView = TopLibraryView()
     weak var tabBarDelegate: MainTabBarControllerDelegate?
     private let emptyView = LottieView()
     private var songsViewModel: [SearchCell.ViewModel]?
+    var notificationToken: NotificationToken? = nil
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -31,7 +33,7 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         presenter?.viewWillAppear()
     }
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
@@ -63,7 +65,6 @@ extension LibraryViewController: LibraryView {
                 self.tableView.selectRow(at: firstSelectedIndex, animated: false, scrollPosition: .none)
             }
         }
-        
         let rowSelectionAction = TableRowAction<SearchCell>(.select) { [weak self] cellOption in
             guard let self = self, let cell = cellOption.cell, let cellViewModel = cell.songViewModel else { return }
             self.tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
@@ -74,17 +75,14 @@ extension LibraryViewController: LibraryView {
             return true
         }
         let rowDeleteAction = TableRowAction<SearchCell>(.clickDelete) { [weak self] cellOption in
-            guard let self = self else { return }
+            guard let self = self, let cell = cellOption.cell, let cellViewModelId = cell.songViewModel?.id else { return }
             section.remove(rowAt: cellOption.indexPath.row)
-            self.tableView.reloadData(inPlace: true)
+            self.presenter?.deleteTrackFromDB(id: cellViewModelId)
+            self.tableView.deleteRows(at: [IndexPath(row: cellOption.indexPath.row, section: 0)], with: .fade)
         }
-        print (songs.map({$0.trackName}))
         let rows1: [TableRow<SearchCell>] = songs.map {
-            TableRow<SearchCell>(item: $0, actions: [configureAction, rowSelectionAction, rowCanDeleteAction, rowDeleteAction], editingActions: nil)
-            }
-//        let rows: [TableRow<SearchCell>] = (songsViewModel?.enumerated().map{
-//            TableRow<SearchCell>(item: $0.element, actions: [configureAction, rowSelectionAction, rowCanDeleteAction, rowDeleteAction])
-//            })!
+            TableRow<SearchCell>(item: $0, actions: [configureAction, rowSelectionAction, rowCanDeleteAction, rowDeleteAction])
+        }
         section.append(rows: rows1)
         tableDirector.append(section: section)
         tableDirector.reload()
@@ -110,18 +108,11 @@ extension LibraryViewController {
         }
         topLibraryView.shuffleButtonTouch = { [weak self] in
             guard let self = self else { return }
-            var shuffled = [SearchCell.ViewModel]()
-            if var songsVM = self.songsViewModel {
-                for _ in 0..<songsVM.count
-                {
-                    let rand = Int(arc4random_uniform(UInt32(songsVM.count)))
-                    shuffled.append(songsVM[rand])
-                    songsVM.remove(at: rand)
-                }
-                self.displayFetchedSongs(songs: shuffled, shuffleButtonClicked: true)
-            }
-            
-            
+            self.shuffleSongs()
+        }
+        topLibraryView.playButtonTouch = { [weak self] in
+            guard let self = self, let songsVM = self.songsViewModel else { return }
+            self.displayFetchedSongs(songs: songsVM, shuffleButtonClicked: true)
         }
     }
 }
@@ -160,6 +151,20 @@ extension Array {
     mutating func shuffling() {
         for _ in indices {
             sort { (_,_) in arc4random() < arc4random() }
+        }
+    }
+}
+extension LibraryViewController {
+    private func shuffleSongs() {
+        if var songsVM = self.songsViewModel {
+            var shuffled = [SearchCell.ViewModel]()
+            for _ in 0..<songsVM.count
+            {
+                let rand = Int(arc4random_uniform(UInt32(songsVM.count)))
+                shuffled.append(songsVM[rand])
+                songsVM.remove(at: rand)
+            }
+            self.displayFetchedSongs(songs: shuffled, shuffleButtonClicked: true)
         }
     }
 }

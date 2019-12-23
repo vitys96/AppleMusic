@@ -18,14 +18,14 @@ class DBManager {
         database = try! Realm()
     }
     
-    func getDataFromSiteList() -> Results<TrackModel> {
+    func getDataFromTrackList() -> Results<TrackModel> {
         
         let results: Results<TrackModel> = database.objects(TrackModel.self)
-        //.sorted(byKeyPath: "siteName", ascending: true)
+        .sorted(byKeyPath: "trackName", ascending: true)
         return results
     }
     
-    func addDataSiteList(object: TrackModel) {
+    func addDataTrackList(object: TrackModel) {
         do {
             try database.write {
                 database.add(object, update: .all)
@@ -48,7 +48,7 @@ class DBManager {
         }
     }
     
-    func deleteSiteFromDb(object: TrackModel) {
+    func deleteTrackFromDb(object: TrackModel) {
         
         do {
             try database.write {

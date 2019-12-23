@@ -17,4 +17,5 @@ target 'AppleMusic' do
   pod 'Marshal'
   pod 'lottie-ios'
 pod 'RealmSwift'
+pod 'SPAlert'
 end

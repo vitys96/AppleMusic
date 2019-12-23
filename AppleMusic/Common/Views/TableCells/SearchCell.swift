@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import TableKit
 import RealmSwift
+import Lottie
 
 class SearchCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var artistImageView: UIImageView!
@@ -19,20 +20,38 @@ class SearchCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var topSeparator: UIView!
     @IBOutlet weak var bottomSeparator: UIView!
     @IBOutlet weak var addTrack: UIButton!
+    var id: Int = 0
+    @IBOutlet weak var lottieView: AnimationView!
     
     static var defaultHeight: CGFloat? {
         return 85
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if(selected) {
+            artistImageView.alpha = 0.5
+            lottieView.animation = Animation.named("isPlaying")
+            lottieView.loopMode = .loop
+            lottieView.contentMode = .scaleAspectFit
+            lottieView.isHidden = false
+            lottieView.play()
+        } else {
+            artistImageView.alpha = 1
+            lottieView.isHidden = true
+            lottieView.stop()
+        }
+    }
     private let realm = try! Realm()
     var songViewModel: ViewModel?
-    var addToLibraryAction: ((ViewModel) -> Void)?
-    
+    //    var lottieView = AnimationView()
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         addTrack.add(for: .touchUpInside) { [weak self] in
             guard let self = self else {return}
             TableCellAction(key: CellActions.addToLibrary.rawValue, sender: self).invoke()
+            self.addTrack.isHidden = true
         }
     }
     
@@ -65,12 +84,35 @@ class SearchCell: UITableViewCell, ConfigurableCell {
                 }
             }
         }
+        //        artistImageView.alpha = 0.5
+        //        self.artistImageView.addSubview(lottieView)
+        //        lottieView.fillSuperview()
+        //        lottieView.alpha = 1
+        //        lottieView.animation = Animation.named("isPlaying")
+        //        lottieView.loopMode = .loop
+        //        lottieView.contentMode = .scaleAspectFit
+        //        lottieView.isHidden = true
+    }
+    func setAnimation() {
         
+    }
+    
+    func resetAnimation() {
+        lottieView.stop()
+        artistImageView.alpha = 1
+        self.lottieView.removeFromSuperview()
+        lottieView.alpha = 0
+        
+        //        lottieView.animation = Animation.named("isPlaying")
+        //        lottieView.loopMode = .loop
+        //        lottieView.contentMode = .scaleAspectFit
+        //        lottieView.play()
     }
 }
 
 extension SearchCell {
     struct ViewModel {
+        let id: Int?
         let trackName: String?
         let artistName: String?
         let collectionName: String?

@@ -8,6 +8,7 @@
 
 import UIKit
 import JGProgressHUD
+import SPAlert
 
 extension UIViewController {
     func showErrorAlert(labelText: String? = nil, detailText: String?) {
@@ -59,5 +60,13 @@ extension UIViewController {
         errorAlert.tapOutsideBlock = { (hud) in
             closedAction()
         }
+    }
+    
+    func showAddedToLibraryAlert(title: String) {
+        let alertView = SPAlertView(title: title, message: nil, preset: SPAlertPreset.done)
+        alertView.duration = 1
+        alertView.dismissByTap = false
+        alertView.haptic = .success
+        alertView.present()
     }
 }
