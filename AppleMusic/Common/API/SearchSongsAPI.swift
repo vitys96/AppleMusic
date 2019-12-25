@@ -22,14 +22,6 @@ struct SearchSongsAPI: MainAPI {
     }
 }
 
-//class Links {
-//    static var offset: Int {
-//        return Links.page * Links.limit
-//    }
-//    static var limit: Int = 10
-//    static var page: Int = 0
-//}
-
 class OffsetConfig {
     static var offset: Int {
         return OffsetConfig.limit * OffsetConfig.page

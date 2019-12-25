@@ -5,7 +5,6 @@
 //  Created by TOOK on 30.11.2019.
 //  Copyright © 2019 Vitaly. All rights reserved.
 //
-
 import UIKit
 import SDWebImage
 import TableKit
@@ -20,8 +19,8 @@ class SearchCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var topSeparator: UIView!
     @IBOutlet weak var bottomSeparator: UIView!
     @IBOutlet weak var addTrack: UIButton!
-    var id: Int = 0
     @IBOutlet weak var lottieView: AnimationView!
+    @IBOutlet weak var musicLogo: UIImageView!
     
     static var defaultHeight: CGFloat? {
         return 85
@@ -30,13 +29,16 @@ class SearchCell: UITableViewCell, ConfigurableCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if(selected) {
+            lottieView.isHidden = false
+            musicLogo.isHidden = false
             artistImageView.alpha = 0.5
+            musicLogo.animate(.fadeIn)
             lottieView.animation = Animation.named("isPlaying")
             lottieView.loopMode = .loop
             lottieView.contentMode = .scaleAspectFit
-            lottieView.isHidden = false
             lottieView.play()
         } else {
+            musicLogo.animate(.fadeOut)
             artistImageView.alpha = 1
             lottieView.isHidden = true
             lottieView.stop()
@@ -44,7 +46,7 @@ class SearchCell: UITableViewCell, ConfigurableCell {
     }
     private let realm = try! Realm()
     var songViewModel: ViewModel?
-    //    var lottieView = AnimationView()
+    
     // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +55,10 @@ class SearchCell: UITableViewCell, ConfigurableCell {
             TableCellAction(key: CellActions.addToLibrary.rawValue, sender: self).invoke()
             self.addTrack.isHidden = true
         }
+        lottieView.backgroundBehavior = .pauseAndRestore
+    }
+    @objc func restartAnimation() {
+            lottieView.play()
     }
     
     func configure(with data: ViewModel) {

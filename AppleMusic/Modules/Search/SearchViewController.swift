@@ -33,6 +33,19 @@ class SearchViewController: UIViewController {
             tableDirector = TableDirector(tableView: tableView, scrollDelegate: self, shouldUseAutomaticCellRegistration: true, cellHeightCalculator: nil)
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           
+           let keyWindow = UIApplication.shared.connectedScenes
+           .filter({$0.activationState == .foregroundActive})
+           .map({$0 as? UIWindowScene})
+           .compactMap({$0})
+           .first?.windows
+           .filter({$0.isKeyWindow}).first
+           
+           let tabBarVC = keyWindow?.rootViewController as? MainTabBarController
+           tabBarVC?.trackDetailView.delegate = self
+       }
     
     // MARK: - Lifecycle -
     override func viewDidLoad() {
@@ -67,16 +80,8 @@ extension SearchViewController: SearchView {
         let rowSelectionAction = TableRowAction<SearchCell>.init(.select) { [weak self] cellOption in
             guard let self = self,
                 let cell = cellOption.cell,
-                let cellViewModel = cell.songViewModel,
-                let indexPath = self.tableView.indexPathForSelectedRow
+                let cellViewModel = cell.songViewModel
                 else { return }
-//            if cell.isSelected {
-//                cell.lottieView.isHidden = false
-//                cell.lottieView.play()
-//            } else {
-//                cell.lottieView.isHidden = true
-//                cell.lottieView.stop()
-//            }
             self.tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
             self.tableView.selectRow(at: cellOption.indexPath, animated: true, scrollPosition: .none)
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
@@ -145,8 +150,7 @@ extension SearchViewController: UIScrollViewDelegate {
     }
     private func fetchingMore(text: String) {
         isFetching = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             self.presenter?.fetchData(searchText: text)
             self.isFetching = false
         }

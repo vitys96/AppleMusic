@@ -21,7 +21,7 @@ class LibraryViewController: UIViewController {
     weak var tabBarDelegate: MainTabBarControllerDelegate?
     private let emptyView = LottieView()
     private var songsViewModel: [SearchCell.ViewModel]?
-    var notificationToken: NotificationToken? = nil
+    
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -29,9 +29,11 @@ class LibraryViewController: UIViewController {
         }
     }
     // MARK: - Lifecycle -
-    
     override func viewWillAppear(_ animated: Bool) {
         presenter?.viewWillAppear()
+//        if let path = tableView.indexPathForSelectedRow {
+//            tableView.deselectRow(at: path, animated: true)
+//        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,7 @@ extension LibraryViewController: LibraryView {
         let configureAction = TableRowAction<SearchCell>(.configure) { [weak self] cellOption in
             guard let self = self, let cell = cellOption.cell else { return }
             cell.backgroundColor = .cellBackground
+            cell.selectionStyle = .none
             if shuffleButtonClicked {
                 let firstSelectedIndex = IndexPath(row: 0, section: 0)
                 self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
@@ -67,8 +70,11 @@ extension LibraryViewController: LibraryView {
         }
         let rowSelectionAction = TableRowAction<SearchCell>(.select) { [weak self] cellOption in
             guard let self = self, let cell = cellOption.cell, let cellViewModel = cell.songViewModel else { return }
+            let keyWindow = UIApplication.shared.connectedScenes.filter({$0.activationState == .foregroundActive}).map({$0 as? UIWindowScene}).compactMap({$0}).first?.windows.filter({$0.isKeyWindow}).first
+            let tabBarVC = keyWindow?.rootViewController as? MainTabBarController
+            tabBarVC?.trackDetailView.delegate = self
             self.tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
-            self.tableView.selectRow(at: cellOption.indexPath, animated: false, scrollPosition: .none)
+            self.tableView.selectRow(at: cellOption.indexPath, animated: true, scrollPosition: .none)
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
         }
         let rowCanDeleteAction = TableRowAction<SearchCell>(.canDelete) { (options) -> Bool in

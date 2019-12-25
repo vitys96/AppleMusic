@@ -18,7 +18,6 @@ class MainTabBarController: UITabBarController {
     let searchVC: SearchViewController = SearchConfigurator.createModule() as! SearchViewController
     let libraryVC: LibraryViewController = LibraryConfigurator.createModule() as! LibraryViewController
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +48,6 @@ class MainTabBarController: UITabBarController {
         trackDetailView.translatesAutoresizingMaskIntoConstraints = false
         trackDetailView.tabBarDelegate = self
         trackDetailView.delegate = searchVC
-        trackDetailView.delegate = libraryVC
         view.insertSubview(trackDetailView, belowSubview: tabBar)
         
         maximizedTopAnchorConstraint = trackDetailView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
