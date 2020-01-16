@@ -43,7 +43,6 @@
 		EF17041323B103A800406D2E /* isPlaying.json in Resources */ = {isa = PBXBuildFile; fileRef = EF17041223B103A800406D2E /* isPlaying.json */; };
 		EF18B11823A92CFE00963A2C /* TopLibraryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4FDA5923A81366002CC8F0 /* TopLibraryView.xib */; };
 		EF3BC4FF239FAFD30089019E /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */; };
-		EF3BC501239FD21C0089019E /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3BC500239FD21C0089019E /* SearchingViewController.swift */; };
 		EF3FCFCE23AD4A7000D339A2 /* NoSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = EF3FCFCD23AD4A7000D339A2 /* NoSearch.json */; };
 		EF3FCFD023AD509C00D339A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FCFCF23AD509C00D339A2 /* Constants.swift */; };
 		EF3FCFD223AD50F900D339A2 /* Extension + UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3FCFD123AD50F900D339A2 /* Extension + UIButton.swift */; };
@@ -111,7 +110,6 @@
 		EF17041023B1027900406D2E /* isPlaying2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isPlaying2.json; sourceTree = "<group>"; };
 		EF17041223B103A800406D2E /* isPlaying.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isPlaying.json; sourceTree = "<group>"; };
 		EF3BC4FE239FAFD30089019E /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
-		EF3BC500239FD21C0089019E /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
 		EF3FCFCD23AD4A7000D339A2 /* NoSearch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoSearch.json; sourceTree = "<group>"; };
 		EF3FCFCF23AD509C00D339A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF3FCFD123AD50F900D339A2 /* Extension + UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIButton.swift"; sourceTree = "<group>"; };
@@ -271,7 +269,6 @@
 				D8E5BC20238AC21000AAC345 /* Assets.xcassets */,
 				D8E5BC22238AC21000AAC345 /* LaunchScreen.storyboard */,
 				D8E5BC25238AC21000AAC345 /* Info.plist */,
-				EF3BC500239FD21C0089019E /* SearchingViewController.swift */,
 			);
 			path = AppleMusic;
 			sourceTree = "<group>";
@@ -617,7 +614,6 @@
 				D88F226E2390673300F95511 /* SearchSongsURL.swift in Sources */,
 				D8E5BC2C238AC25400AAC345 /* MainTabBarController.swift in Sources */,
 				EF8DBBD5239A6FDA003A034B /* Alertable.swift in Sources */,
-				EF3BC501239FD21C0089019E /* SearchingViewController.swift in Sources */,
 				EFDE389523928D17008260E8 /* UIView + Anchors.swift in Sources */,
 				EF8DBBD7239A6FF6003A034B /* Loadable.swift in Sources */,
 				EF0A84E623AAB6B200B60372 /* DBManager.swift in Sources */,

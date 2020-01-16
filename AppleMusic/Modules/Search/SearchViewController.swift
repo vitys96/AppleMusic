@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         presenter?.viewDidLoad()
-        searchBar(searchController.searchBar, textDidChange: "Billie")
+//        searchBar(searchController.searchBar, textDidChange: "Billie")
     }
 }
 
